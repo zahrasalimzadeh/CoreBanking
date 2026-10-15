@@ -140,20 +140,20 @@ CoreBanking/
 Copy `.env.example` to `.env` and fill in the values. The `.env` file is ignored by Git and must never be uploaded.
 فایل `.env.example` را به `.env` کپی کنید و مقدارها را پر کنید. فایل `.env` توسط Git نادیده گرفته می‌شود و هرگز نباید آپلود شود.
 
-| Variable                | Description                                          | توضیح                                              |
-| ----------------------- | ---------------------------------------------------- | -------------------------------------------------- |
-| `DB_SERVER`             | SQL Server address                                   | آدرس SQL Server                                    |
-| `DB_NAME`               | Database name                                        | نام پایگاه داده                                    |
-| `DB_USERNAME`           | Database username                                    | نام کاربری پایگاه داده                             |
-| `DB_PASSWORD`           | Database password                                    | رمز عبور پایگاه داده                               |
-| `DB_DRIVER`             | ODBC driver used by pyodbc, installed on your machine | نام ODBC Driver نصب‌شده روی سیستم که pyodbc استفاده می‌کند |
-| `RABBITMQ_HOST`         | RabbitMQ server address                              | آدرس سرور RabbitMQ                                 |
-| `RABBITMQ_PORT`         | RabbitMQ port (5672)                                 | پورت RabbitMQ (معمولاً 5672)                       |
-| `RABBITMQ_USERNAME`     | RabbitMQ username                                    | نام کاربری RabbitMQ                                |
-| `RABBITMQ_PASSWORD`     | RabbitMQ password                                    | رمز عبور RabbitMQ                                  |
-| `RABBITMQ_VIRTUAL_HOST` | RabbitMQ virtual host                                | Virtual Host در RabbitMQ                           |
-| `SMSIR_API_KEY`         | sms.ir API key                                       | کلید API سایت sms.ir                               |
-| `SMSIR_LINE_NUMBER`     | sms.ir line number                                   | شماره‌ی خط sms.ir                                  |
+| Variable                | Description                                           | توضیح                                                      |
+| ----------------------- | ----------------------------------------------------- | ---------------------------------------------------------- |
+| `DB_SERVER`             | SQL Server address                                    | آدرس SQL Server                                            |
+| `DB_NAME`               | Database name                                         | نام پایگاه داده                                            |
+| `DB_USERNAME`           | Database username                                     | نام کاربری پایگاه داده                                     |
+| `DB_PASSWORD`           | Database password                                     | رمز عبور پایگاه داده                                       |
+| `DB_DRIVER`             | ODBC driver used by pyodbc, installed on your machine | نام ODBC Driver نصب‌شده روی سیستم که pyodbc استفاده می‌کند  |
+| `RABBITMQ_HOST`         | RabbitMQ server address                               | آدرس سرور RabbitMQ                                         |
+| `RABBITMQ_PORT`         | RabbitMQ port (5672)                                  | پورت RabbitMQ (معمولاً 5672)                               |
+| `RABBITMQ_USERNAME`     | RabbitMQ username                                     | نام کاربری RabbitMQ                                        |
+| `RABBITMQ_PASSWORD`     | RabbitMQ password                                     | رمز عبور RabbitMQ                                          |
+| `RABBITMQ_VIRTUAL_HOST` | RabbitMQ virtual host                                 | Virtual Host در RabbitMQ                                   |
+| `SMSIR_API_KEY`         | sms.ir API key                                        | کلید API سایت sms.ir                                       |
+| `SMSIR_LINE_NUMBER`     | sms.ir line number                                    | شماره‌ی خط sms.ir                                          |
 
 ---
 
@@ -227,10 +227,10 @@ The demo videos are published on LinkedIn:
 
 | Video                                        | ویدیو                                         | Link |
 | -------------------------------------------- | --------------------------------------------- | ---- |
-| Architecture diagram                         | نمودار معماری                                 | [Watch on LinkedIn](https://www.linkedin.com/in/zahra-salimzadeh-5767582ab/) |
-| Login and waiting for the verification code  | ورود و منتظر ماندن برای کد تأیید              | [Watch on LinkedIn](https://www.linkedin.com/in/zahra-salimzadeh-5767582ab/) |
-| Receiving the code                           | دریافت کد                                     | [Watch on LinkedIn](https://www.linkedin.com/in/zahra-salimzadeh-5767582ab/) |
-| Home page after verification                 | صفحه‌ی اصلی بعد از تأیید                      | [Watch on LinkedIn](https://www.linkedin.com/in/zahra-salimzadeh-5767582ab/) |
+| Architecture diagram                         | نمودار معماری                                 | [Watch on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7516609310831845376/) |
+| Login and waiting for the verification code  | ورود و منتظر ماندن برای کد تأیید              | [Watch on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7516609963180367874/) |
+| Receiving the code                           | دریافت کد                                     | [Watch on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7516611332004061185/) |
+| Home page after verification                 | صفحه‌ی اصلی بعد از تأیید                      | [Watch on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7516611776558301184/) |
 
 ---
 
