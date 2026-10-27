@@ -12,3 +12,4 @@ SQLAlchemy==2.1.1
 ttkbootstrap==2.2.3
 typing_extensions==4.16.0
 urllib3==2.8.0
+prometheus_client==0.26.0

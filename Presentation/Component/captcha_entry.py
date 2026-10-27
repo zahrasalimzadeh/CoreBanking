@@ -19,7 +19,7 @@ class CaptchaEntry(Frame):
         self.entry = Entry(self)
         self.entry.grid(row=1, column=0, sticky="ew")
 
-        # 10: فاصله بین کادر و دکمه Refresh = padx=(5, 0)
+
         self.refresh_button = Button(self, text="Refresh",
                                      command=self.generate_new_captcha)
         self.refresh_button.grid(row=1, column=1, padx=(5, 0))
