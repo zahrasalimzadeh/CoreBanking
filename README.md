@@ -1,55 +1,74 @@
 # 🏦 CoreBanking | هسته‌ی بانکداری
 
 A desktop core banking application built with Python, Tkinter and ttkbootstrap. It includes login with captcha, user registration, SMS verification (OTP) delivered through a RabbitMQ microservice, role-based home pages, and performance monitoring (database logging, Prometheus metrics and a Grafana dashboard).
+
+<div dir="rtl">
+
 برنامه‌ی دسکتاپ هسته‌ی بانکداری که با Python و Tkinter و ttkbootstrap ساخته شده است. شامل ورود با کپچا، ثبت‌نام کاربر، تأیید پیامکی (OTP) از طریق یک میکروسرویس مبتنی بر RabbitMQ، صفحه‌ی اصلی بر اساس نقش کاربر و پایش عملکرد (ذخیره‌ی لاگ در دیتابیس، متریک‌های Prometheus و داشبورد Grafana) است.
+
+</div>
 
 ---
 
 # 📌 Features | امکانات
 
-✅ Login with username, password and captcha
-✅ "Remember Me" option
-✅ User registration with captcha
-✅ SMS verification code (OTP) after login
-✅ Retry button with a 2-minute countdown
-✅ OTP delivery through RabbitMQ and a separate Notification microservice
-✅ Role-based home page (Administrator / Banker)
-✅ Layered architecture (Presentation / Business Logic / Data Access)
-✅ SQL Server database with SQLAlchemy
-✅ Secrets stored in a `.env` file
-✅ Function execution logs saved in the database
-✅ Execution metrics exposed to Prometheus
-✅ Metrics displayed in a Grafana dashboard
+- ✅ Login with username, password and captcha
+- ✅ "Remember Me" option
+- ✅ User registration with captcha
+- ✅ SMS verification code (OTP) after login
+- ✅ Retry button with a 2-minute countdown
+- ✅ OTP delivery through RabbitMQ and a separate Notification microservice
+- ✅ Role-based home page (Administrator / Banker)
+- ✅ Layered architecture (Presentation / Business Logic / Data Access)
+- ✅ SQL Server database with SQLAlchemy
+- ✅ Secrets stored in a `.env` file
+- ✅ Function execution logs saved in the database
+- ✅ Execution metrics exposed to Prometheus
+- ✅ Metrics displayed in a Grafana dashboard
 
-✅ ورود با نام کاربری، رمز عبور و کپچا
-✅ گزینه‌ی «مرا به خاطر بسپار»
-✅ ثبت‌نام کاربر با کپچا
-✅ کد تأیید پیامکی (OTP) بعد از ورود
-✅ دکمه‌ی ارسال مجدد با شمارش معکوس ۲ دقیقه‌ای
-✅ ارسال OTP از طریق RabbitMQ و یک میکروسرویس جداگانه‌ی Notification
-✅ صفحه‌ی اصلی بر اساس نقش (مدیر / بانکدار)
-✅ معماری لایه‌بندی‌شده (Presentation / Business Logic / Data Access)
-✅ پایگاه داده‌ی SQL Server با SQLAlchemy
-✅ نگهداری رمزها و کلیدها در فایل `.env`
-✅ ذخیره‌ی لاگ اجرای توابع در پایگاه داده
-✅ ارسال اطلاعات اجرا به Prometheus
-✅ نمایش اطلاعات در داشبورد Grafana
+<div dir="rtl">
+
+- ✅ ورود با نام کاربری، رمز عبور و کپچا
+- ✅ گزینه‌ی «مرا به خاطر بسپار»
+- ✅ ثبت‌نام کاربر با کپچا
+- ✅ کد تأیید پیامکی (OTP) بعد از ورود
+- ✅ دکمه‌ی ارسال مجدد با شمارش معکوس ۲ دقیقه‌ای
+- ✅ ارسال OTP از طریق RabbitMQ و یک میکروسرویس جداگانه‌ی Notification
+- ✅ صفحه‌ی اصلی بر اساس نقش (مدیر / بانکدار)
+- ✅ معماری لایه‌بندی‌شده (Presentation / Business Logic / Data Access)
+- ✅ پایگاه داده‌ی SQL Server با SQLAlchemy
+- ✅ نگهداری رمزها و کلیدها در فایل `.env`
+- ✅ ذخیره‌ی لاگ اجرای توابع در پایگاه داده
+- ✅ ارسال اطلاعات اجرا به Prometheus
+- ✅ نمایش اطلاعات در داشبورد Grafana
+
+</div>
 
 ### 🚧 In Progress | در حال توسعه
 
 - Employee Management (Administrator)
 - Account Management (Banker)
 - My Profile editing
+
+<div dir="rtl">
+
 - مدیریت کارمندان (مدیر)
 - مدیریت حساب‌ها (بانکدار)
 - ویرایش پروفایل من
+
+</div>
 
 ---
 
 # 🏗 Architecture | معماری
 
 CoreBanking does not call the SMS provider directly. It publishes the verification code to RabbitMQ, and the Notification microservice consumes it and sends the SMS through sms.ir.
+
+<div dir="rtl">
+
 CoreBanking مستقیم به سرویس پیامک وصل نمی‌شود. کد تأیید را در RabbitMQ منتشر می‌کند و میکروسرویس Notification آن را برمی‌دارد و از طریق sms.ir پیامک می‌فرستد.
+
+</div>
 
 [![Architecture diagram](https://raw.githubusercontent.com/zahrasalimzadeh/NotificationMicroservice/main/diagram.jpg)](https://raw.githubusercontent.com/zahrasalimzadeh/NotificationMicroservice/main/diagram.jpg)
 
@@ -60,24 +79,38 @@ CoreBanking مستقیم به سرویس پیامک وصل نمی‌شود. کد
 3. [NotificationMicroservice](https://github.com/zahrasalimzadeh/NotificationMicroservice) consumes the message and sends the SMS to sms.ir.
 4. The user enters the code, and CoreBanking validates it and opens the home page.
 
-۱. بعد از ورود موفق، CoreBanking یک کد تأیید می‌سازد.
-۲. پیام (`phone` و `content`) را با `NotificationPublisher` در RabbitMQ منتشر می‌کند.
-۳. [NotificationMicroservice](https://github.com/zahrasalimzadeh/NotificationMicroservice) پیام را برمی‌دارد و پیامک را به sms.ir می‌فرستد.
-۴. کاربر کد را وارد می‌کند و CoreBanking آن را بررسی می‌کند و صفحه‌ی اصلی را باز می‌کند.
+<div dir="rtl">
+
+1. بعد از ورود موفق، CoreBanking یک کد تأیید می‌سازد.
+2. پیام (`phone` و `content`) را با `NotificationPublisher` در RabbitMQ منتشر می‌کند.
+3. [NotificationMicroservice](https://github.com/zahrasalimzadeh/NotificationMicroservice) پیام را برمی‌دارد و پیامک را به sms.ir می‌فرستد.
+4. کاربر کد را وارد می‌کند و CoreBanking آن را بررسی می‌کند و صفحه‌ی اصلی را باز می‌کند.
+
+</div>
 
 ---
 
 # 📈 Monitoring | پایش عملکرد
 
 Every function decorated with `@performance_logger` is measured on each call. The result goes to two places: a SQL Server table (the log) and Prometheus (the metrics). Grafana reads the metrics from Prometheus and shows them in a dashboard.
+
+<div dir="rtl">
+
 هر تابعی که با `@performance_logger` علامت‌گذاری شده باشد در هر بار اجرا اندازه‌گیری می‌شود. نتیجه در دو جا ثبت می‌شود: یک جدول در SQL Server (لاگ) و Prometheus (متریک‌ها). Grafana متریک‌ها را از Prometheus می‌خواند و در یک داشبورد نشان می‌دهد.
+
+</div>
 
 [![Monitoring diagram](https://github.com/zahrasalimzadeh/CoreBanking/raw/main/9.png)](https://github.com/zahrasalimzadeh/CoreBanking/blob/main/9.png)
 
 ## 1. Database log | لاگ در پایگاه داده
 
 The decorator lives in `Common/Decorators/performance_logger.py` and the table model in `DataAccess/Models/performance_logger.py`. The table is created automatically on the first run (`Base.metadata.create_all`).
+
+<div dir="rtl">
+
 دکوراتور در `Common/Decorators/performance_logger.py` و مدل جدول در `DataAccess/Models/performance_logger.py` قرار دارد. جدول در اولین اجرا به‌صورت خودکار ساخته می‌شود.
+
+</div>
 
 | Column / ستون    | Type / نوع       | Description / توضیح                |
 |------------------|------------------|------------------------------------|
@@ -87,12 +120,22 @@ The decorator lives in `Common/Decorators/performance_logger.py` and the table m
 | `call_date_time` | datetime         | When it was called / زمان فراخوانی |
 
 Example functions that are measured: `login_button_clicked` and `get_by_username_password`.
+
+<div dir="rtl">
+
 نمونه توابعی که اندازه‌گیری می‌شوند: `login_button_clicked` و `get_by_username_password`.
+
+</div>
 
 ## 2. Prometheus metrics | متریک‌های Prometheus
 
 `main.py` starts a metrics server with `start_http_server(8000)`. While the application is running, the metrics are available at `http://127.0.0.1:8000/metrics`.
+
+<div dir="rtl">
+
 فایل `main.py` یک سرور متریک با `start_http_server(8000)` راه‌اندازی می‌کند. تا وقتی برنامه روشن است، متریک‌ها در آدرس `http://127.0.0.1:8000/metrics` در دسترس هستند.
+
+</div>
 
 | Metric / متریک                              | Type / نوع | Description / توضیح                              |
 |---------------------------------------------|------------|--------------------------------------------------|
@@ -102,10 +145,20 @@ Example functions that are measured: `login_button_clicked` and `get_by_username
 | `app_function_last_call_timestamp_seconds`  | Gauge      | Unix time of the last call / زمان آخرین فراخوانی |
 
 Every metric has a `function` label with the function name.
+
+<div dir="rtl">
+
 هر متریک یک برچسب `function` با نام تابع دارد.
 
+</div>
+
 Save this as `prometheus.yml` next to `prometheus.exe`, then run `prometheus.exe`:
+
+<div dir="rtl">
+
 این را با نام `prometheus.yml` کنار `prometheus.exe` ذخیره کنید و سپس `prometheus.exe` را اجرا کنید:
+
+</div>
 
 ```yaml
 global:
@@ -122,7 +175,12 @@ scrape_configs:
 ```
 
 Open `http://localhost:9090/targets`. Both `prometheus` and `core_banking_app` must be **UP**.
+
+<div dir="rtl">
+
 آدرس `http://localhost:9090/targets` را باز کنید. هر دو مورد `prometheus` و `core_banking_app` باید **UP** باشند.
+
+</div>
 
 ## 3. Grafana dashboard | داشبورد Grafana
 
@@ -135,9 +193,13 @@ Open `http://localhost:9090/targets`. Both `prometheus` and `core_banking_app` m
 | **Function Calls**        | `sum by (function) (app_function_calls_total)`  |
 | **Function Execution Time** | `app_function_last_duration_seconds`          |
 
-۱. Grafana را در `http://localhost:3000` باز کنید.
-۲. یک Data source از نوع Prometheus با آدرس `http://localhost:9090` اضافه کنید.
-۳. یک داشبورد با نام **Core Banking Monitoring** و دو پنل بالا بسازید.
+<div dir="rtl">
+
+1. Grafana را در `http://localhost:3000` باز کنید.
+2. یک Data source از نوع Prometheus با آدرس `http://localhost:9090` اضافه کنید.
+3. یک داشبورد با نام **Core Banking Monitoring** و دو پنل بالا بسازید.
+
+</div>
 
 ---
 
@@ -222,7 +284,12 @@ CoreBanking/
 # ⚙️ Environment Variables | متغیرهای محیطی
 
 Copy `.env.example` to `.env` and fill in the values. The `.env` file is ignored by Git and must never be uploaded.
+
+<div dir="rtl">
+
 فایل `.env.example` را به `.env` کپی کنید و مقدارها را پر کنید. فایل `.env` توسط Git نادیده گرفته می‌شود و هرگز نباید آپلود شود.
+
+</div>
 
 | Variable                | Description                                           | توضیح                                                      |
 |-------------------------|-------------------------------------------------------|------------------------------------------------------------|
@@ -244,7 +311,12 @@ Copy `.env.example` to `.env` and fill in the values. The `.env` file is ignored
 # 🚀 How To Run | نحوه اجرا
 
 Make sure SQL Server and RabbitMQ are installed and running, then clone the repository:
+
+<div dir="rtl">
+
 مطمئن شوید SQL Server و RabbitMQ نصب و روشن هستند، سپس پروژه را کلون کنید:
+
+</div>
 
 ```
 git clone https://github.com/zahrasalimzadeh/CoreBanking.git
@@ -263,7 +335,12 @@ pip install -r requirements.txt
 ```
 
 Create the database by running `CreateDatabase.sql` in SQL Server Management Studio. The `performance_logger` table is created automatically on the first run.
+
+<div dir="rtl">
+
 پایگاه داده را با اجرای فایل `CreateDatabase.sql` در SQL Server Management Studio بسازید. جدول `performance_logger` در اولین اجرا به‌صورت خودکار ساخته می‌شود.
+
+</div>
 
 Create your `.env` file from the example and fill in the values:
 
@@ -272,14 +349,24 @@ copy .env.example .env
 ```
 
 Start the [NotificationMicroservice](https://github.com/zahrasalimzadeh/NotificationMicroservice) (it must be running to deliver the SMS), then run the application:
+
+<div dir="rtl">
+
 میکروسرویس [NotificationMicroservice](https://github.com/zahrasalimzadeh/NotificationMicroservice) را اجرا کنید (برای ارسال پیامک باید روشن باشد)، سپس برنامه را اجرا کنید:
+
+</div>
 
 ```
 python main.py
 ```
 
 To see the monitoring part, also start Prometheus (`prometheus.exe`) and Grafana, as described in the [Monitoring](#-monitoring--پایش-عملکرد) section.
+
+<div dir="rtl">
+
 برای دیدن بخش پایش، Prometheus (`prometheus.exe`) و Grafana را هم طبق بخش [پایش عملکرد](#-monitoring--پایش-عملکرد) اجرا کنید.
+
+</div>
 
 ---
 
@@ -322,7 +409,12 @@ To see the monitoring part, also start Prometheus (`prometheus.exe`) and Grafana
 ### 🎬 Videos | ویدیوها
 
 The demo videos are published on LinkedIn:
+
+<div dir="rtl">
+
 ویدیوهای دمو در LinkedIn منتشر شده‌اند:
+
+</div>
 
 | Video                                       | ویدیو                            | Link                                                                                           |
 |---------------------------------------------|----------------------------------|------------------------------------------------------------------------------------------------|
@@ -338,9 +430,14 @@ The demo videos are published on LinkedIn:
 - The verification SMS is delivered by the NotificationMicroservice through sms.ir. An sms.ir account with enough credit is required to receive the real SMS.
 - The queue and exchange names must be the same in CoreBanking and in the NotificationMicroservice.
 - The metrics endpoint (port 8000) only exists while the application is running. When the application is closed, the `core_banking_app` target in Prometheus becomes DOWN. This is expected.
+
+<div dir="rtl">
+
 - پیامک تأیید توسط NotificationMicroservice و از طریق sms.ir ارسال می‌شود. برای دریافت پیامک واقعی، حساب sms.ir باید اعتبار کافی داشته باشد.
 - نام Exchange و Queue باید در CoreBanking و NotificationMicroservice یکسان باشد.
 - آدرس متریک‌ها (پورت 8000) فقط تا وقتی برنامه روشن است وجود دارد. وقتی برنامه بسته شود، target با نام `core_banking_app` در Prometheus به حالت DOWN می‌رود. این رفتار طبیعی است.
+
+</div>
 
 ---
 
