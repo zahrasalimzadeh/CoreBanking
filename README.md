@@ -72,12 +72,7 @@ CoreBanking مستقیم به سرویس پیامک وصل نمی‌شود. کد
 Every function decorated with `@performance_logger` is measured on each call. The result goes to two places: a SQL Server table (the log) and Prometheus (the metrics). Grafana reads the metrics from Prometheus and shows them in a dashboard.
 هر تابعی که با `@performance_logger` علامت‌گذاری شده باشد در هر بار اجرا اندازه‌گیری می‌شود. نتیجه در دو جا ثبت می‌شود: یک جدول در SQL Server (لاگ) و Prometheus (متریک‌ها). Grafana متریک‌ها را از Prometheus می‌خواند و در یک داشبورد نشان می‌دهد.
 
-```mermaid
-flowchart LR
-    A["CoreBanking<br/>@performance_logger"] -->|"INSERT"| B[("SQL Server<br/>performance_logger")]
-    A -->|"/metrics (port 8000)"| C["Prometheus<br/>port 9090"]
-    C -->|"PromQL"| D["Grafana<br/>port 3000"]
-```
+[![Monitoring diagram](https://github.com/zahrasalimzadeh/CoreBanking/raw/main/9.png)](https://github.com/zahrasalimzadeh/CoreBanking/blob/main/9.png)
 
 ## 1. Database log | لاگ در پایگاه داده
 
