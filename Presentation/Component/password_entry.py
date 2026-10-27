@@ -10,7 +10,7 @@ class PasswordEntry(Frame):
         self.password_entry = Entry(self, show="*")
         self.password_entry.grid(row=0, column=0, sticky="ew")
 
-        # 8: فاصله بین کادر و دکمه Show = padx=(5, 0)
+
         self.change_state_button = Button(self, text="Show", width=6,
                                           command=self.change_state_button_clicked)
         self.change_state_button.grid(row=0, column=1, padx=(5, 0))

@@ -3,6 +3,7 @@ from ttkbootstrap import Frame, Label, Entry, Button, Checkbutton
 from ttkbootstrap.dialogs import Messagebox
 from Presentation.Component.password_entry import PasswordEntry
 from Presentation.Component.captcha_entry import CaptchaEntry
+from Common.Decorators.performance_logger import performance_logger
 
 
 from BusinessLogic.user_business_logic import UserBusinessLogic
@@ -15,11 +16,11 @@ class LoginFrame(Frame):
         self.main_view = main_view
         self.user_business = user_business
 
-        # صفحه دو قسمته: ستون چپ (۰) عرض ثابت، ستون راست (۱) بقیه‌ی جا رو می‌گیره
+
         self.grid_columnconfigure(1, weight=1)
         self.grid_rowconfigure(0, weight=1)
 
-        # ----- قسمت چپ: آیکون و اسم برنامه -----
+
         self.left_form = Frame(self, bootstyle="primary", width=300)
         self.left_form.grid(row=0, column=0, sticky="nsew")
 
@@ -28,7 +29,7 @@ class LoginFrame(Frame):
                                 font=("Segoe UI", 22, "bold"), bootstyle="inverse-primary")
         self.logo_label.place(relx=0.5, rely=0.5, anchor="center")
 
-        # ----- قسمت راست: فرم -----
+
         self.right_form = Frame(self, padding=30)
         self.right_form.grid(row=0, column=1, sticky="nsew")
 
@@ -60,6 +61,7 @@ class LoginFrame(Frame):
                                       command=self.register_button_clicked)
         self.register_button.pack()
 
+    @performance_logger
     def login_button_clicked(self):
         username = self.username_entry.get()
         password = self.password_entry.get_value()

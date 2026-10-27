@@ -2,9 +2,11 @@ from Common.Entities.employee import Employee
 from Common.Repositories.iemployee_repository import IEmployeeRepository
 from DataAccess.Config.database import create_session
 from DataAccess.Models.employee import Employee as EmployeeModel
+from Common.Decorators.performance_logger import performance_logger
 
 
 class SQLAlchemyEmployeeRepository(IEmployeeRepository):
+    @performance_logger
     def get_by_username_password(self, username: str, password: str) -> Employee:
         with create_session() as session:
             employee_model = session.query(EmployeeModel).filter_by(

@@ -7,6 +7,7 @@ from DataAccess.Models.base import Base
 from DataAccess.Models.employee import Employee
 from DataAccess.Models.employee_status import EmployeeStatus
 from DataAccess.Repositories.employee_repository import SQLAlchemyEmployeeRepository
+from prometheus_client import start_http_server
 
 load_dotenv()
 
@@ -38,4 +39,5 @@ with create_session() as session:
 
 repository = SQLAlchemyEmployeeRepository()
 user_business = UserBusinessLogic(repository)
+start_http_server(8000)
 MainView(user_business)
