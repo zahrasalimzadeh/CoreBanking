@@ -6,6 +6,10 @@ from DataAccess.Config.database import create_session, engine
 from DataAccess.Models.base import Base
 from DataAccess.Models.employee import Employee
 from DataAccess.Models.employee_status import EmployeeStatus
+from DataAccess.Models.customer import Customer
+from DataAccess.Models.account import Account
+from DataAccess.Models.transaction_type import TransactionType
+from DataAccess.Models.transaction import Transaction
 from DataAccess.Repositories.employee_repository import SQLAlchemyEmployeeRepository
 from prometheus_client import start_http_server
 
