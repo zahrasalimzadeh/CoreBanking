@@ -10,6 +10,7 @@ from DataAccess.Models.customer import Customer
 from DataAccess.Models.account import Account
 from DataAccess.Models.transaction_type import TransactionType
 from DataAccess.Models.transaction import Transaction
+from DataAccess.Models.otp import Otp
 from DataAccess.Repositories.employee_repository import SQLAlchemyEmployeeRepository
 from prometheus_client import start_http_server
 
