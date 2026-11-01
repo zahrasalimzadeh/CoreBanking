@@ -132,25 +132,7 @@ The mobile app only calls the API and manages the user interface. The API does n
 
 </div>
 
-```mermaid
-sequenceDiagram
-    participant App as Mobile App
-    participant API as CoreBanking API
-    participant DB as SQL Server
-    participant MQ as RabbitMQ
-    participant N as Notification Service
-    participant SMS as sms.ir
-
-    App->>API: POST /api/v1/auth/login (mobile, password)
-    API->>DB: save OTP (code, expires_at)
-    API->>MQ: publish message (phone, content)
-    API-->>App: "Code was sent." (immediately)
-    MQ->>N: consume message
-    N->>SMS: send SMS
-    App->>API: POST /api/v1/auth/verify-otp (mobile, password, code)
-    API->>DB: check code (correct, not used, not expired)
-    API-->>App: "Welcome ..."
-```
+[![Mobile login flow](docs/images/mobile-login-flow.png)](docs/images/mobile-login-flow.png)
 
 ---
 
