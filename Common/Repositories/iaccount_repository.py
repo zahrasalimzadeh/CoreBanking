@@ -8,6 +8,10 @@ class IAccountRepository(ABC):
         pass
 
     @abstractmethod
+    def get_accounts_by_customer_id(self, customer_id):
+        pass
+
+    @abstractmethod
     def get_transaction_by_account_id(self, account_id):
         pass
 
