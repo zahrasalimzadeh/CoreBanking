@@ -1,10 +1,10 @@
 # 🏦 CoreBanking | هسته‌ی بانکداری
 
-A desktop core banking application built with Python, Tkinter and ttkbootstrap. It includes login with captcha, user registration, SMS verification (OTP) delivered through a RabbitMQ microservice, role-based home pages, and performance monitoring (database logging, Prometheus metrics and a Grafana dashboard).
+A core banking application built with Python. It has a desktop application (Tkinter and ttkbootstrap) and a REST API (FastAPI) that serves a mobile banking app. It includes login with captcha, SMS verification (OTP) delivered through a RabbitMQ microservice, an API for balance, transactions and accounts, unit tests, and performance monitoring (database logging, Prometheus metrics and a Grafana dashboard).
 
 <div dir="rtl">
 
-برنامه‌ی دسکتاپ هسته‌ی بانکداری که با Python و Tkinter و ttkbootstrap ساخته شده است. شامل ورود با کپچا، ثبت‌نام کاربر، تأیید پیامکی (OTP) از طریق یک میکروسرویس مبتنی بر RabbitMQ، صفحه‌ی اصلی بر اساس نقش کاربر و پایش عملکرد (ذخیره‌ی لاگ در دیتابیس، متریک‌های Prometheus و داشبورد Grafana) است.
+هسته‌ی بانکداری که با Python ساخته شده است. شامل یک برنامه‌ی دسکتاپ (Tkinter و ttkbootstrap) و یک REST API (با FastAPI) برای اپلیکیشن موبایل بانکی است. امکاناتی مثل ورود با کپچا، تأیید پیامکی (OTP) از طریق یک میکروسرویس مبتنی بر RabbitMQ، API موجودی، تراکنش‌ها و حساب‌ها، تست واحد و پایش عملکرد (ذخیره‌ی لاگ در دیتابیس، متریک‌های Prometheus و داشبورد Grafana) دارد.
 
 </div>
 
@@ -12,19 +12,14 @@ A desktop core banking application built with Python, Tkinter and ttkbootstrap. 
 
 # 📌 Features | امکانات
 
+### Desktop application | برنامه‌ی دسکتاپ
+
 - ✅ Login with username, password and captcha
 - ✅ "Remember Me" option
 - ✅ User registration with captcha
 - ✅ SMS verification code (OTP) after login
 - ✅ Retry button with a 2-minute countdown
-- ✅ OTP delivery through RabbitMQ and a separate Notification microservice
 - ✅ Role-based home page (Administrator / Banker)
-- ✅ Layered architecture (Presentation / Business Logic / Data Access)
-- ✅ SQL Server database with SQLAlchemy
-- ✅ Secrets stored in a `.env` file
-- ✅ Function execution logs saved in the database
-- ✅ Execution metrics exposed to Prometheus
-- ✅ Metrics displayed in a Grafana dashboard
 
 <div dir="rtl">
 
@@ -33,11 +28,46 @@ A desktop core banking application built with Python, Tkinter and ttkbootstrap. 
 - ✅ ثبت‌نام کاربر با کپچا
 - ✅ کد تأیید پیامکی (OTP) بعد از ورود
 - ✅ دکمه‌ی ارسال مجدد با شمارش معکوس ۲ دقیقه‌ای
-- ✅ ارسال OTP از طریق RabbitMQ و یک میکروسرویس جداگانه‌ی Notification
 - ✅ صفحه‌ی اصلی بر اساس نقش (مدیر / بانکدار)
+
+</div>
+
+### REST API for the mobile app | API برای اپلیکیشن موبایل
+
+- ✅ Customer login with mobile number and password
+- ✅ Two-step login: the API stores a one-time code (OTP) in the database, publishes a message to RabbitMQ and answers immediately
+- ✅ OTP verification (valid for 2 minutes, usable only once)
+- ✅ Accounts of a customer, account balance and transaction list
+- ✅ Interactive documentation with Swagger (`/docs`)
+- ✅ Unit tests for the business logic (28 tests)
+
+<div dir="rtl">
+
+- ✅ ورود مشتری با شماره‌ی موبایل و رمز عبور
+- ✅ ورود دو مرحله‌ای: API کد یک‌بارمصرف (OTP) را در دیتابیس ذخیره می‌کند، پیام را در RabbitMQ منتشر می‌کند و فوراً جواب می‌دهد
+- ✅ بررسی OTP (۲ دقیقه اعتبار دارد و فقط یک بار قابل استفاده است)
+- ✅ حساب‌های مشتری، موجودی حساب و لیست تراکنش‌ها
+- ✅ مستندات تعاملی با Swagger (آدرس `/docs`)
+- ✅ تست واحد برای لایه‌ی منطق برنامه (۲۸ تست)
+
+</div>
+
+### Shared | مشترک
+
+- ✅ Layered architecture (Presentation / Business Logic / Data Access)
+- ✅ SQL Server database with SQLAlchemy
+- ✅ Secrets stored in a `.env` file
+- ✅ OTP delivery through RabbitMQ and a separate Notification microservice
+- ✅ Function execution logs saved in the database
+- ✅ Execution metrics exposed to Prometheus
+- ✅ Metrics displayed in a Grafana dashboard
+
+<div dir="rtl">
+
 - ✅ معماری لایه‌بندی‌شده (Presentation / Business Logic / Data Access)
 - ✅ پایگاه داده‌ی SQL Server با SQLAlchemy
 - ✅ نگهداری رمزها و کلیدها در فایل `.env`
+- ✅ ارسال OTP از طریق RabbitMQ و یک میکروسرویس جداگانه‌ی Notification
 - ✅ ذخیره‌ی لاگ اجرای توابع در پایگاه داده
 - ✅ ارسال اطلاعات اجرا به Prometheus
 - ✅ نمایش اطلاعات در داشبورد Grafana
@@ -46,12 +76,14 @@ A desktop core banking application built with Python, Tkinter and ttkbootstrap. 
 
 ### 🚧 In Progress | در حال توسعه
 
+- Mobile banking app (Kivy), in a separate repository
 - Employee Management (Administrator)
 - Account Management (Banker)
 - My Profile editing
 
 <div dir="rtl">
 
+- اپلیکیشن موبایل بانکی (Kivy) در یک ریپازیتوری جداگانه
 - مدیریت کارمندان (مدیر)
 - مدیریت حساب‌ها (بانکدار)
 - ویرایش پروفایل من
@@ -74,6 +106,8 @@ CoreBanking مستقیم به سرویس پیامک وصل نمی‌شود. کد
 
 [Open the interactive diagram | باز کردن نمودار تعاملی](https://zahrasalimzadeh.github.io/NotificationMicroservice/diagram.html)
 
+## Desktop login flow | جریان ورود در برنامه‌ی دسکتاپ
+
 1. After a successful login, CoreBanking generates a verification code.
 2. It publishes the message (`phone`, `content`) to RabbitMQ through `NotificationPublisher`.
 3. [NotificationMicroservice](https://github.com/zahrasalimzadeh/NotificationMicroservice) consumes the message and sends the SMS to sms.ir.
@@ -87,6 +121,202 @@ CoreBanking مستقیم به سرویس پیامک وصل نمی‌شود. کد
 4. کاربر کد را وارد می‌کند و CoreBanking آن را بررسی می‌کند و صفحه‌ی اصلی را باز می‌کند.
 
 </div>
+
+## Mobile login flow | جریان ورود در اپلیکیشن موبایل
+
+The mobile app only calls the API and manages the user interface. The API does not wait for the SMS: it stores the code, publishes the message and answers immediately.
+
+<div dir="rtl">
+
+اپلیکیشن موبایل فقط API را صدا می‌زند و رابط کاربری را مدیریت می‌کند. API منتظر ارسال پیامک نمی‌ماند: کد را ذخیره می‌کند، پیام را منتشر می‌کند و بلافاصله پاسخ می‌دهد.
+
+</div>
+
+```mermaid
+sequenceDiagram
+    participant App as Mobile App
+    participant API as CoreBanking API
+    participant DB as SQL Server
+    participant MQ as RabbitMQ
+    participant N as Notification Service
+    participant SMS as sms.ir
+
+    App->>API: POST /api/v1/auth/login (mobile, password)
+    API->>DB: save OTP (code, expires_at)
+    API->>MQ: publish message (phone, content)
+    API-->>App: "Code was sent." (immediately)
+    MQ->>N: consume message
+    N->>SMS: send SMS
+    App->>API: POST /api/v1/auth/verify-otp (mobile, password, code)
+    API->>DB: check code (correct, not used, not expired)
+    API-->>App: "Welcome ..."
+```
+
+---
+
+# 🌐 REST API | واسط برنامه‌نویسی
+
+The API is built with FastAPI and listens on port **8001** (port 8000 is used by the Prometheus metrics of the desktop application). Start it with:
+
+<div dir="rtl">
+
+API با FastAPI ساخته شده و روی پورت **8001** اجرا می‌شود (پورت 8000 برای متریک‌های Prometheus برنامه‌ی دسکتاپ استفاده می‌شود). برای اجرا:
+
+</div>
+
+```
+uvicorn main_api:app --port 8001 --reload
+```
+
+Then open the interactive documentation at `http://127.0.0.1:8001/docs`.
+
+<div dir="rtl">
+
+سپس مستندات تعاملی را در آدرس `http://127.0.0.1:8001/docs` باز کنید.
+
+</div>
+
+[![Swagger overview](docs/images/swagger-overview.png)](docs/images/swagger-overview.png)
+
+| Method | Endpoint                                | Description                                   | توضیح                                          |
+|--------|-----------------------------------------|-----------------------------------------------|------------------------------------------------|
+| POST   | `/api/v1/auth/login`                    | Check mobile and password, create and send OTP | بررسی موبایل و رمز، ساخت و ارسال OTP          |
+| POST   | `/api/v1/auth/verify-otp`               | Verify the OTP and finish the login           | بررسی OTP و تکمیل ورود                         |
+| GET    | `/api/v1/accounts?customer_id=`         | Accounts of a customer                        | حساب‌های یک مشتری                              |
+| GET    | `/api/v1/accounts/{account_id}/balance` | Balance of an account                         | موجودی یک حساب                                 |
+| GET    | `/api/v1/transactions?account_id=`      | Transactions of an account (newest first)     | تراکنش‌های یک حساب (جدیدترین اول)              |
+| GET    | `/health_check`                         | Check that the API is running                 | بررسی روشن بودن API                            |
+
+Every endpoint (except `health_check`) returns the same response shape:
+
+<div dir="rtl">
+
+همه‌ی endpoint ها (به‌جز `health_check`) پاسخ را با همین قالب برمی‌گردانند:
+
+</div>
+
+```json
+{
+  "success": true,
+  "message": "Balance was loaded.",
+  "data": 5500000
+}
+```
+
+The balance is calculated as the sum of deposits minus the sum of withdrawals of the account.
+
+<div dir="rtl">
+
+موجودی حساب برابر است با جمع واریزها منهای جمع برداشت‌های آن حساب.
+
+</div>
+
+## Login (step 1) | ورود (مرحله‌ی ۱)
+
+Request body: `{"mobile": "09120000002", "password": "123456"}` (sample customer from `CreateDatabase.sql`).
+
+<div dir="rtl">
+
+بدنه‌ی درخواست: `{"mobile": "09120000002", "password": "123456"}` (مشتری نمونه از فایل `CreateDatabase.sql`).
+
+</div>
+
+[![Login](docs/images/api-login.png)](docs/images/api-login.png)
+
+The code is saved in the `otp` table (valid for 2 minutes):
+
+<div dir="rtl">
+
+کد در جدول `otp` ذخیره می‌شود (۲ دقیقه اعتبار دارد):
+
+</div>
+
+[![OTP table](docs/images/db-otp-table.jpg)](docs/images/db-otp-table.jpg)
+
+## Verify OTP (step 2) | تأیید OTP (مرحله‌ی ۲)
+
+Request body: `{"mobile": "09120000002", "password": "123456", "code": "20329"}`
+
+<div dir="rtl">
+
+بدنه‌ی درخواست: `{"mobile": "09120000002", "password": "123456", "code": "20329"}`
+
+</div>
+
+[![Verify OTP](docs/images/api-verify-otp.png)](docs/images/api-verify-otp.png)
+
+A code can be used only once. Sending the same code again is rejected:
+
+<div dir="rtl">
+
+هر کد فقط یک بار قابل استفاده است. ارسال دوباره‌ی همان کد رد می‌شود:
+
+</div>
+
+[![Used code is rejected](docs/images/api-verify-otp-used.png)](docs/images/api-verify-otp-used.png)
+
+## Accounts, balance and transactions | حساب‌ها، موجودی و تراکنش‌ها
+
+[![Accounts of a customer](docs/images/api-accounts.png)](docs/images/api-accounts.png)
+
+[![Balance](docs/images/api-balance.png)](docs/images/api-balance.png)
+
+[![Transactions](docs/images/api-transactions.png)](docs/images/api-transactions.png)
+
+---
+
+# 🗄 Database | پایگاه داده
+
+SQL Server with SQLAlchemy. `CreateDatabase.sql` creates the database, all tables and some sample data (30 customers, 32 accounts and 4 sample transactions).
+
+<div dir="rtl">
+
+SQL Server با SQLAlchemy. فایل `CreateDatabase.sql` پایگاه داده، همه‌ی جدول‌ها و مقداری داده‌ی نمونه (۳۰ مشتری، ۳۲ حساب و ۴ تراکنش نمونه) را می‌سازد.
+
+</div>
+
+| Table                | Description                                                   | توضیح                                              |
+|----------------------|---------------------------------------------------------------|----------------------------------------------------|
+| `employee`           | Desktop users (username, hashed password, mobile, role)       | کاربران برنامه‌ی دسکتاپ                            |
+| `employee_status`    | Pending / Active / Deactive                                   | وضعیت کارمند                                       |
+| `customer`           | Bank customers (name, mobile, hashed password)                | مشتری‌های بانک (نام، موبایل، رمز هش‌شده)           |
+| `account`            | Accounts of customers (unique account number, opening date)   | حساب‌های مشتری‌ها (شماره‌ی حساب یکتا، تاریخ افتتاح) |
+| `transaction_type`   | Deposit / Withdraw                                            | نوع تراکنش (واریز / برداشت)                        |
+| `transactions`       | Deposits and withdrawals of accounts                          | واریزها و برداشت‌های حساب‌ها                       |
+| `otp`                | One-time codes (phone, code, expiry time, used flag)          | کدهای یک‌بارمصرف (موبایل، کد، زمان انقضا، استفاده‌شده) |
+| `performance_logger` | Function execution log                                        | لاگ اجرای توابع                                    |
+
+All sample customers have the password `123456` (stored as an MD5 hash). The sample data is only for development.
+
+<div dir="rtl">
+
+رمز همه‌ی مشتری‌های نمونه `123456` است (به‌صورت هش MD5 ذخیره شده). داده‌ی نمونه فقط برای توسعه است.
+
+</div>
+
+---
+
+# 🧪 Unit Tests | تست واحد
+
+The business logic (login, OTP and account rules) is tested with the standard `unittest` module. The tests use fake repositories, so they do not need SQL Server or RabbitMQ and finish in a few milliseconds.
+
+<div dir="rtl">
+
+منطق برنامه (ورود، OTP و قوانین حساب) با ماژول استاندارد `unittest` تست شده است. تست‌ها از repository های ساختگی استفاده می‌کنند، پس به SQL Server و RabbitMQ نیاز ندارند و در چند میلی‌ثانیه تمام می‌شوند.
+
+</div>
+
+```
+python -m unittest discover -s tests -t . -v
+```
+
+| Test file                         | Tests | What it checks                                                                 |
+|-----------------------------------|-------|--------------------------------------------------------------------------------|
+| `test_otp_business_logic.py`      | 9     | Sending a code, wrong / expired / already used code, RabbitMQ is down          |
+| `test_auth_business_logic.py`     | 11    | Valid login, invalid mobile, short password, wrong password, wrong code        |
+| `test_account_business_logic.py`  | 8     | Balance, transactions and accounts with valid and invalid ids                  |
+
+[![Unit tests result](docs/images/unit-tests.jpg)](docs/images/unit-tests.jpg)
 
 ---
 
@@ -206,8 +436,8 @@ Open `http://localhost:9090/targets`. Both `prometheus` and `core_banking_app` m
 # 🛠 Technologies Used | تکنولوژی‌های استفاده‌شده
 
 - Python
-- Tkinter
-- ttkbootstrap
+- FastAPI, Uvicorn and Pydantic
+- Tkinter and ttkbootstrap
 - SQLAlchemy
 - SQL Server (pyodbc, pymssql)
 - RabbitMQ (pika)
@@ -215,6 +445,7 @@ Open `http://localhost:9090/targets`. Both `prometheus` and `core_banking_app` m
 - Captcha (Pillow)
 - Prometheus (prometheus_client)
 - Grafana
+- unittest
 - Layered Architecture
 - Microservice Architecture
 
@@ -226,7 +457,10 @@ Open `http://localhost:9090/targets`. Both `prometheus` and `core_banking_app` m
 CoreBanking/
 │
 ├── BusinessLogic/
-│   └── user_business_logic.py
+│   ├── user_business_logic.py
+│   ├── auth_business_logic.py
+│   ├── otp_business_logic.py
+│   └── account_business_logic.py
 │
 ├── Common/
 │   ├── Decorators/
@@ -242,33 +476,36 @@ CoreBanking/
 ├── DataAccess/
 │   ├── Config/
 │   ├── Models/
-│   │   └── performance_logger.py
 │   └── Repositories/
 │
 ├── Presentation/
+│   ├── API/
+│   │   ├── DI/
+│   │   ├── DTOs/
+│   │   └── Endpoints/
 │   ├── Component/
 │   ├── Frames/
-│   │   ├── login.py
-│   │   ├── register.py
-│   │   ├── otp.py
-│   │   ├── home.py
-│   │   └── profile.py
 │   ├── main_view.py
 │   └── window.py
+│
+├── docs/
+│   └── images/
+├── tests/
 │
 ├── .env.example
 ├── .gitignore
 ├── CreateDatabase.sql
 ├── main.py
+├── main_api.py
 └── requirements.txt
 ```
 
-| Layer / لایه    | Responsibility                                  | وظیفه                                         |
-|-----------------|-------------------------------------------------|-----------------------------------------------|
-| `Presentation`  | Tkinter windows and frames                      | پنجره‌ها و صفحه‌های Tkinter                   |
-| `BusinessLogic` | Login, registration and validation rules        | قوانین ورود، ثبت‌نام و اعتبارسنجی             |
-| `DataAccess`    | SQLAlchemy models and repositories              | مدل‌ها و ریپازیتوری‌های SQLAlchemy            |
-| `Common`        | Entities, enums, DTOs, decorators, shared services | موجودیت‌ها، Enum ها، DTO ها، دکوراتورها و سرویس‌های مشترک |
+| Layer / لایه    | Responsibility                                          | وظیفه                                                     |
+|-----------------|---------------------------------------------------------|-----------------------------------------------------------|
+| `Presentation`  | Tkinter windows and frames, and the FastAPI endpoints   | پنجره‌ها و صفحه‌های Tkinter و endpoint های FastAPI        |
+| `BusinessLogic` | Login, OTP, account and validation rules                | قوانین ورود، OTP، حساب و اعتبارسنجی                       |
+| `DataAccess`    | SQLAlchemy models and repositories                      | مدل‌ها و ریپازیتوری‌های SQLAlchemy                        |
+| `Common`        | Entities, enums, DTOs, decorators, shared services      | موجودیت‌ها، Enum ها، DTO ها، دکوراتورها و سرویس‌های مشترک |
 
 ---
 
@@ -334,11 +571,11 @@ Install the requirements:
 pip install -r requirements.txt
 ```
 
-Create the database by running `CreateDatabase.sql` in SQL Server Management Studio. The `performance_logger` table is created automatically on the first run.
+Create the database by running `CreateDatabase.sql` in SQL Server Management Studio. It creates the `CoreBanking0606` database with all tables and sample data.
 
 <div dir="rtl">
 
-پایگاه داده را با اجرای فایل `CreateDatabase.sql` در SQL Server Management Studio بسازید. جدول `performance_logger` در اولین اجرا به‌صورت خودکار ساخته می‌شود.
+پایگاه داده را با اجرای فایل `CreateDatabase.sql` در SQL Server Management Studio بسازید. این فایل پایگاه داده‌ی `CoreBanking0606` را با همه‌ی جدول‌ها و داده‌ی نمونه می‌سازد.
 
 </div>
 
@@ -348,17 +585,19 @@ Create your `.env` file from the example and fill in the values:
 copy .env.example .env
 ```
 
-Start the [NotificationMicroservice](https://github.com/zahrasalimzadeh/NotificationMicroservice) (it must be running to deliver the SMS), then run the application:
+Start the [NotificationMicroservice](https://github.com/zahrasalimzadeh/NotificationMicroservice) (it must be running to deliver the SMS), then run what you need:
 
 <div dir="rtl">
 
-میکروسرویس [NotificationMicroservice](https://github.com/zahrasalimzadeh/NotificationMicroservice) را اجرا کنید (برای ارسال پیامک باید روشن باشد)، سپس برنامه را اجرا کنید:
+میکروسرویس [NotificationMicroservice](https://github.com/zahrasalimzadeh/NotificationMicroservice) را اجرا کنید (برای ارسال پیامک باید روشن باشد)، سپس هر بخشی که می‌خواهید را اجرا کنید:
 
 </div>
 
-```
-python main.py
-```
+| What / چی                    | Command / دستور                                 |
+|------------------------------|-------------------------------------------------|
+| Desktop application / دسکتاپ | `python main.py`                                |
+| REST API / ای‌پی‌آی          | `uvicorn main_api:app --port 8001 --reload`     |
+| Unit tests / تست‌ها          | `python -m unittest discover -s tests -t . -v`  |
 
 To see the monitoring part, also start Prometheus (`prometheus.exe`) and Grafana, as described in the [Monitoring](#-monitoring--پایش-عملکرد) section.
 
@@ -406,6 +645,14 @@ To see the monitoring part, also start Prometheus (`prometheus.exe`) and Grafana
 
 [![Grafana dashboard](https://github.com/zahrasalimzadeh/CoreBanking/raw/main/8.png)](https://github.com/zahrasalimzadeh/CoreBanking/blob/main/8.png)
 
+The API screenshots are in the REST API section.
+
+<div dir="rtl">
+
+تصاویر API در بخش «واسط برنامه‌نویسی» قرار دارد.
+
+</div>
+
 ### 🎬 Videos | ویدیوها
 
 The demo videos are published on LinkedIn:
@@ -429,13 +676,17 @@ The demo videos are published on LinkedIn:
 
 - The verification SMS is delivered by the NotificationMicroservice through sms.ir. An sms.ir account with enough credit is required to receive the real SMS.
 - The queue and exchange names must be the same in CoreBanking and in the NotificationMicroservice.
-- The metrics endpoint (port 8000) only exists while the application is running. When the application is closed, the `core_banking_app` target in Prometheus becomes DOWN. This is expected.
+- The metrics endpoint (port 8000) only exists while the desktop application is running. When it is closed, the `core_banking_app` target in Prometheus becomes DOWN. This is expected.
+- The API runs on port 8001, so it can run at the same time as the desktop application.
+- The balance and transactions endpoints do not check yet that the account belongs to the logged-in customer. Adding a token to protect them is planned.
 
 <div dir="rtl">
 
 - پیامک تأیید توسط NotificationMicroservice و از طریق sms.ir ارسال می‌شود. برای دریافت پیامک واقعی، حساب sms.ir باید اعتبار کافی داشته باشد.
 - نام Exchange و Queue باید در CoreBanking و NotificationMicroservice یکسان باشد.
-- آدرس متریک‌ها (پورت 8000) فقط تا وقتی برنامه روشن است وجود دارد. وقتی برنامه بسته شود، target با نام `core_banking_app` در Prometheus به حالت DOWN می‌رود. این رفتار طبیعی است.
+- آدرس متریک‌ها (پورت 8000) فقط تا وقتی برنامه‌ی دسکتاپ روشن است وجود دارد. وقتی بسته شود، target با نام `core_banking_app` در Prometheus به حالت DOWN می‌رود. این رفتار طبیعی است.
+- API روی پورت 8001 اجرا می‌شود، پس هم‌زمان با برنامه‌ی دسکتاپ قابل اجرا است.
+- endpoint های موجودی و تراکنش‌ها هنوز بررسی نمی‌کنند که حساب متعلق به مشتریِ واردشده است. افزودن توکن برای محافظت از آن‌ها برنامه‌ریزی شده است.
 
 </div>
 
