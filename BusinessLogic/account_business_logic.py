@@ -19,3 +19,10 @@ class AccountBusinessLogic:
 
         transactions = self.account_repository.get_transaction_by_account_id(account_id)
         return Response(True, "Transactions were loaded.", transactions)
+
+    def get_accounts(self, customer_id: int):
+        if customer_id is None or customer_id <= 0:
+            return Response(False, "Invalid customer.")
+
+        accounts = self.account_repository.get_accounts_by_customer_id(customer_id)
+        return Response(True, "Accounts were loaded.", accounts)

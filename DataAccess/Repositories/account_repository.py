@@ -33,6 +33,26 @@ class SQLAlchemyAccountRepository(IAccountRepository):
 
         return account_list
 
+    @performance_logger
+    def get_accounts_by_customer_id(self, customer_id):
+        account_list = []
+
+        with create_session() as session:
+            rows = (
+                session.query(AccountModel, CustomerModel)
+                .join(CustomerModel, CustomerModel.id == AccountModel.customer_id)
+                .filter(AccountModel.customer_id == customer_id)
+                .order_by(AccountModel.id)
+                .all()
+            )
+
+            for account_model, customer_model in rows:
+                customer = Customer(customer_model.id, customer_model.first_name, customer_model.last_name)
+                account = Account(account_model.id, account_model.account_number, account_model.opening_date, customer)
+                account_list.append(account)
+
+        return account_list
+
     def get_transaction_by_account_id(self, account_id):
         transaction_list = []
 
