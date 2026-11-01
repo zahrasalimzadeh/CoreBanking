@@ -104,6 +104,8 @@ CoreBanking مستقیم به سرویس پیامک وصل نمی‌شود. کد
 
 [![Architecture diagram](https://raw.githubusercontent.com/zahrasalimzadeh/NotificationMicroservice/main/diagram.jpg)](https://raw.githubusercontent.com/zahrasalimzadeh/NotificationMicroservice/main/diagram.jpg)
 
+[![نمودار معماری (نسخه‌ی فارسی)](docs/images/architecture-notification-fa.png)](docs/images/architecture-notification-fa.png)
+
 [Open the interactive diagram | باز کردن نمودار تعاملی](https://zahrasalimzadeh.github.io/NotificationMicroservice/diagram.html)
 
 ## Desktop login flow | جریان ورود در برنامه‌ی دسکتاپ
@@ -133,6 +135,14 @@ The mobile app only calls the API and manages the user interface. The API does n
 </div>
 
 [![Mobile login flow](docs/images/mobile-login-flow.png)](docs/images/mobile-login-flow.png)
+
+<div dir="rtl">
+
+نمودار جریان ورود در اپلیکیشن موبایل (نسخه‌ی فارسی)
+
+</div>
+
+[![نمودار جریان ورود در اپلیکیشن موبایل (نسخه‌ی فارسی)](docs/images/mobile-login-flow-fa.png)](docs/images/mobile-login-flow-fa.png)
 
 ---
 
@@ -312,7 +322,15 @@ Every function decorated with `@performance_logger` is measured on each call. Th
 
 </div>
 
-[![Monitoring diagram](https://github.com/zahrasalimzadeh/CoreBanking/raw/main/9.png)](https://github.com/zahrasalimzadeh/CoreBanking/blob/main/9.png)
+[![Monitoring diagram](docs/images/monitoring-diagram.png)](docs/images/monitoring-diagram.png)
+
+<div dir="rtl">
+
+نمودار پایش (نسخه‌ی فارسی)
+
+</div>
+
+[![نمودار پایش (نسخه‌ی فارسی)](docs/images/monitoring-diagram-fa.png)](docs/images/monitoring-diagram-fa.png)
 
 ## 1. Database log | لاگ در پایگاه داده
 
@@ -597,35 +615,35 @@ To see the monitoring part, also start Prometheus (`prometheus.exe`) and Grafana
 
 **1. Login page with captcha | صفحه‌ی ورود با کپچا**
 
-[![Login](https://github.com/zahrasalimzadeh/CoreBanking/raw/main/1.jpg)](https://github.com/zahrasalimzadeh/CoreBanking/blob/main/1.jpg)
+[![Login](docs/images/desktop-login.jpg)](docs/images/desktop-login.jpg)
 
 **2. Verification code page | صفحه‌ی وارد کردن کد تأیید**
 
-[![OTP](https://github.com/zahrasalimzadeh/CoreBanking/raw/main/2.jpg)](https://github.com/zahrasalimzadeh/CoreBanking/blob/main/2.jpg)
+[![OTP](docs/images/desktop-otp.jpg)](docs/images/desktop-otp.jpg)
 
 **3. Registration page | صفحه‌ی ثبت‌نام**
 
-[![Register](https://github.com/zahrasalimzadeh/CoreBanking/raw/main/3.jpg)](https://github.com/zahrasalimzadeh/CoreBanking/blob/main/3.jpg)
+[![Register](docs/images/desktop-register.jpg)](docs/images/desktop-register.jpg)
 
 **4. Administrator home page | صفحه‌ی اصلی مدیر**
 
-[![Administrator home](https://github.com/zahrasalimzadeh/CoreBanking/raw/main/4.png)](https://github.com/zahrasalimzadeh/CoreBanking/blob/main/4.png)
+[![Administrator home](docs/images/desktop-home-admin.png)](docs/images/desktop-home-admin.png)
 
 **5. Banker home page | صفحه‌ی اصلی بانکدار**
 
-[![Banker home](https://github.com/zahrasalimzadeh/CoreBanking/raw/main/5.png)](https://github.com/zahrasalimzadeh/CoreBanking/blob/main/5.png)
+[![Banker home](docs/images/desktop-home-banker.png)](docs/images/desktop-home-banker.png)
 
 **6. Logs saved in the `performance_logger` table | لاگ‌های ذخیره‌شده در جدول `performance_logger`**
 
-[![Database log](https://github.com/zahrasalimzadeh/CoreBanking/raw/main/6.png)](https://github.com/zahrasalimzadeh/CoreBanking/blob/main/6.png)
+[![Database log](docs/images/db-performance-logger.png)](docs/images/db-performance-logger.png)
 
 **7. Prometheus targets (both UP) | Targetهای Prometheus (هر دو UP)**
 
-[![Prometheus targets](https://github.com/zahrasalimzadeh/CoreBanking/raw/main/7.png)](https://github.com/zahrasalimzadeh/CoreBanking/blob/main/7.png)
+[![Prometheus targets](docs/images/prometheus-targets.png)](docs/images/prometheus-targets.png)
 
 **8. Grafana dashboard | داشبورد Grafana**
 
-[![Grafana dashboard](https://github.com/zahrasalimzadeh/CoreBanking/raw/main/8.png)](https://github.com/zahrasalimzadeh/CoreBanking/blob/main/8.png)
+[![Grafana dashboard](docs/images/grafana-dashboard.png)](docs/images/grafana-dashboard.png)
 
 The API screenshots are in the REST API section.
 
