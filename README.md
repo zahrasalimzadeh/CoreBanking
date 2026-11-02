@@ -134,6 +134,8 @@ The mobile app only calls the API and manages the user interface. The API does n
 
 [![Mobile login flow](docs/images/mobile-login-flow.png)](docs/images/mobile-login-flow.png)
 
+[Open the interactive flow | باز کردن جریان تعاملی](https://zahrasalimzadeh.github.io/CoreBanking/interactive-flow.html)
+
 ---
 
 # 🌐 REST API | واسط برنامه‌نویسی
@@ -511,6 +513,7 @@ CoreBanking/
 ├── .env.example
 ├── .gitignore
 ├── CreateDatabase.sql
+├── interactive-flow.html
 ├── main.py
 ├── main_api.py
 └── requirements.txt
