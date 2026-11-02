@@ -104,8 +104,6 @@ CoreBanking does not call the SMS provider directly. It publishes the verificati
 
 [![Architecture diagram](docs/images/architecture-preview.png)](https://zahrasalimzadeh.github.io/NotificationMicroservice/diagram.html)
 
-[Open the interactive diagram | باز کردن نمودار تعاملی](https://zahrasalimzadeh.github.io/NotificationMicroservice/diagram.html)
-
 ## Desktop login flow | جریان ورود در برنامه‌ی دسکتاپ
 
 1. After a successful login, CoreBanking generates a verification code.
@@ -135,8 +133,6 @@ The mobile app only calls the API and manages the user interface. The API does n
 [![Mobile login flow](docs/images/mobile-login-flow.png)](docs/images/mobile-login-flow.png)
 
 [![Interactive flow preview](docs/images/interactive-flow-preview.png)](https://zahrasalimzadeh.github.io/CoreBanking/interactive-flow.html)
-
-[Open the interactive flow | باز کردن جریان تعاملی](https://zahrasalimzadeh.github.io/CoreBanking/interactive-flow.html)
 
 ---
 
