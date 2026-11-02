@@ -102,7 +102,25 @@ CoreBanking does not call the SMS provider directly. It publishes the verificati
 
 </div>
 
-[![Architecture diagram](docs/images/architecture-preview.png)](https://zahrasalimzadeh.github.io/NotificationMicroservice/diagram.html)
+![Architecture diagram](docs/images/architecture-diagram.jpg)
+
+CoreBanking (the producer) publishes the message to a **direct** Exchange in RabbitMQ with the routing key `notification`. The Exchange puts it in the Queue, where messages wait until the Notification microservice (the consumer) takes them. Notification then calls sms.ir over HTTP to send the SMS.
+
+<div dir="rtl">
+
+‏CoreBanking (تولیدکننده) پیام را با routing key به نام `notification` به یک Exchange از نوع **direct** در RabbitMQ می‌فرستد. Exchange پیام را در Queue می‌گذارد و پیام همان‌جا منتظر می‌ماند تا میکروسرویس Notification (مصرف‌کننده) آن را بردارد. بعد Notification با یک درخواست HTTP به sms.ir پیامک را ارسال می‌کند.
+
+</div>
+
+Want to see it step by step? Click the animated version below (it has a Persian / English switch):
+
+<div dir="rtl">
+
+‏می‌خواهید قدم‌به‌قدم ببینید؟ روی نسخه‌ی متحرک زیر کلیک کنید (دکمه‌ی فارسی / English دارد):
+
+</div>
+
+[![Animated architecture diagram](docs/images/architecture-preview.png)](https://zahrasalimzadeh.github.io/NotificationMicroservice/diagram.html)
 
 ## Desktop login flow | جریان ورود در برنامه‌ی دسکتاپ
 
@@ -131,6 +149,14 @@ The mobile app only calls the API and manages the user interface. The API does n
 </div>
 
 [![Mobile login flow](docs/images/mobile-login-flow.png)](docs/images/mobile-login-flow.png)
+
+Prefer to watch the whole mobile login (all 9 steps, from login to welcome) as an animation? Click the image below. It supports Persian and English.
+
+<div dir="rtl">
+
+‏می‌خواهید کل ورود موبایل (۹ مرحله، از لاگین تا خوش‌آمد) را به‌صورت انیمیشن ببینید؟ روی تصویر زیر کلیک کنید. فارسی و English دارد.
+
+</div>
 
 [![Interactive flow preview](docs/images/interactive-flow-preview.png)](https://zahrasalimzadeh.github.io/CoreBanking/interactive-flow.html)
 
