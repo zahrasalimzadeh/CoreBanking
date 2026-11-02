@@ -188,12 +188,12 @@ Then open the interactive documentation at `http://127.0.0.1:8001/docs`.
 
 | Method | Endpoint                                | Description                                   | توضیح                                          |
 |--------|-----------------------------------------|-----------------------------------------------|------------------------------------------------|
-| POST   | `/api/v1/auth/login`                    | Check mobile and password, create and send OTP | بررسی موبایل و رمز، ساخت و ارسال OTP          |
-| POST   | `/api/v1/auth/verify-otp`               | Verify the OTP and finish the login           | بررسی OTP و تکمیل ورود                         |
+| POST   | `/api/v1/auth/login`                    | Check mobile and password, create and send OTP | بررسی موبایل و رمز، ساخت و ارسال کد یک‌بارمصرف |
+| POST   | `/api/v1/auth/verify-otp`               | Verify the OTP and finish the login           | بررسی کد یک‌بارمصرف و تکمیل ورود               |
 | GET    | `/api/v1/accounts?customer_id=`         | Accounts of a customer                        | حساب‌های یک مشتری                              |
 | GET    | `/api/v1/accounts/{account_id}/balance` | Balance of an account                         | موجودی یک حساب                                 |
 | GET    | `/api/v1/transactions?account_id=`      | Transactions of an account (newest first)     | تراکنش‌های یک حساب (جدیدترین اول)              |
-| GET    | `/health_check`                         | Check that the API is running                 | بررسی روشن بودن API                            |
+| GET    | `/health_check`                         | Check that the API is running                 | بررسی روشن بودن ای‌پی‌آی                        |
 
 Every endpoint (except `health_check`) returns the same response shape:
 
@@ -318,11 +318,11 @@ The business logic (login, OTP and account rules) is tested with the standard `u
 python -m unittest discover -s tests -t . -v
 ```
 
-| Test file                         | Tests | What it checks                                                                 |
-|-----------------------------------|-------|--------------------------------------------------------------------------------|
-| `test_otp_business_logic.py`      | 9     | Sending a code, wrong / expired / already used code, RabbitMQ is down          |
-| `test_auth_business_logic.py`     | 11    | Valid login, invalid mobile, short password, wrong password, wrong code        |
-| `test_account_business_logic.py`  | 8     | Balance, transactions and accounts with valid and invalid ids                  |
+| Test file                         | Tests | What it checks                                                                 | توضیح |
+|-----------------------------------|-------|--------------------------------------------------------------------------------|------|
+| `test_otp_business_logic.py`      | 9     | Sending a code, wrong / expired / already used code, RabbitMQ is down          | ارسال کد، کد اشتباه، منقضی‌شده یا استفاده‌شده، و خاموش بودن ربیت‌ام‌کیو |
+| `test_auth_business_logic.py`     | 11    | Valid login, invalid mobile, short password, wrong password, wrong code        | ورود درست، موبایل نامعتبر، رمز کوتاه، رمز اشتباه، کد اشتباه |
+| `test_account_business_logic.py`  | 8     | Balance, transactions and accounts with valid and invalid ids                  | موجودی، تراکنش‌ها و حساب‌ها با شناسه‌ی درست و نادرست |
 
 [![Unit tests result](docs/images/unit-tests.jpg)](docs/images/unit-tests.jpg)
 
@@ -545,10 +545,10 @@ CoreBanking/
 
 | Layer / لایه    | Responsibility                                          | وظیفه                                                     |
 |-----------------|---------------------------------------------------------|-----------------------------------------------------------|
-| `Presentation`  | Tkinter windows and frames, and the FastAPI endpoints   | پنجره‌ها و صفحه‌های Tkinter و endpoint های FastAPI        |
-| `BusinessLogic` | Login, OTP, account and validation rules                | قوانین ورود، OTP، حساب و اعتبارسنجی                       |
-| `DataAccess`    | SQLAlchemy models and repositories                      | مدل‌ها و ریپازیتوری‌های SQLAlchemy                        |
-| `Common`        | Entities, enums, DTOs, decorators, shared services      | موجودیت‌ها، Enum ها، DTO ها، دکوراتورها و سرویس‌های مشترک |
+| `Presentation`  | Tkinter windows and frames, and the FastAPI endpoints   | پنجره‌ها و صفحه‌های تی‌کینتر و اندپوینت‌های فست‌ای‌پی‌آی |
+| `BusinessLogic` | Login, OTP, account and validation rules                | قوانین ورود، کد یک‌بارمصرف، حساب و اعتبارسنجی             |
+| `DataAccess`    | SQLAlchemy models and repositories                      | مدل‌ها و ریپازیتوری‌های اس‌کیو‌ال‌آلکمی                    |
+| `Common`        | Entities, enums, DTOs, decorators, shared services      | موجودیت‌ها، انوم‌ها، دی‌تی‌او‌ها، دکوراتورها و سرویس‌های مشترک |
 
 ---
 
@@ -558,7 +558,7 @@ CoreBanking/
 |---------------|-----------------------------------------|-----------------------------------|
 | Administrator | Employee Management, My Profile, Logout | مدیریت کارمندان، پروفایل من، خروج |
 | Banker        | Account Management, My Profile, Logout  | مدیریت حساب‌ها، پروفایل من، خروج  |
-| Customer      | Mobile app: login with OTP, accounts, balance, transactions (through the API) | اپلیکیشن موبایل: ورود با OTP، حساب‌ها، موجودی، تراکنش‌ها (از طریق API) |
+| Customer      | Mobile app: login with OTP, accounts, balance, transactions (through the API) | اپلیکیشن موبایل: ورود با کد یک‌بارمصرف، حساب‌ها، موجودی، تراکنش‌ها (از طریق ای‌پی‌آی) |
 
 ---
 
@@ -574,18 +574,18 @@ Copy `.env.example` to `.env` and fill in the values. The `.env` file is ignored
 
 | Variable                | Description                                           | توضیح                                                      |
 |-------------------------|-------------------------------------------------------|------------------------------------------------------------|
-| `DB_SERVER`             | SQL Server address                                    | آدرس SQL Server                                            |
+| `DB_SERVER`             | SQL Server address                                    | آدرس سرور اس‌کیو‌ال                                         |
 | `DB_NAME`               | Database name                                         | نام پایگاه داده                                            |
 | `DB_USERNAME`           | Database username                                     | نام کاربری پایگاه داده                                     |
 | `DB_PASSWORD`           | Database password                                     | رمز عبور پایگاه داده                                       |
-| `DB_DRIVER`             | ODBC driver used by pyodbc, installed on your machine | نام ODBC Driver نصب‌شده روی سیستم که pyodbc استفاده می‌کند |
-| `RABBITMQ_HOST`         | RabbitMQ server address                               | آدرس سرور RabbitMQ                                         |
-| `RABBITMQ_PORT`         | RabbitMQ port (5672)                                  | پورت RabbitMQ (معمولاً 5672)                               |
-| `RABBITMQ_USERNAME`     | RabbitMQ username                                     | نام کاربری RabbitMQ                                        |
-| `RABBITMQ_PASSWORD`     | RabbitMQ password                                     | رمز عبور RabbitMQ                                          |
-| `RABBITMQ_VIRTUAL_HOST` | RabbitMQ virtual host                                 | Virtual Host در RabbitMQ                                   |
-| `SMSIR_API_KEY`         | sms.ir API key                                        | کلید API سایت sms.ir                                       |
-| `SMSIR_LINE_NUMBER`     | sms.ir line number                                    | شماره‌ی خط sms.ir                                          |
+| `DB_DRIVER`             | ODBC driver used by pyodbc, installed on your machine | نام درایور ای‌او‌دی‌بی‌سی نصب‌شده روی سیستم که پای‌او‌دی‌بی‌سی استفاده می‌کند |
+| `RABBITMQ_HOST`         | RabbitMQ server address                               | آدرس سرور ربیت‌ام‌کیو                                      |
+| `RABBITMQ_PORT`         | RabbitMQ port (5672)                                  | پورت ربیت‌ام‌کیو (معمولاً ۵۶۷۲)                            |
+| `RABBITMQ_USERNAME`     | RabbitMQ username                                     | نام کاربری ربیت‌ام‌کیو                                     |
+| `RABBITMQ_PASSWORD`     | RabbitMQ password                                     | رمز عبور ربیت‌ام‌کیو                                       |
+| `RABBITMQ_VIRTUAL_HOST` | RabbitMQ virtual host                                 | ویرچوال‌هاست در ربیت‌ام‌کیو                                |
+| `SMSIR_API_KEY`         | sms.ir API key                                        | کلید ای‌پی‌آی سرویس اس‌ام‌اس‌دات‌آی‌آر                      |
+| `SMSIR_LINE_NUMBER`     | sms.ir line number                                    | شماره‌ی خط اس‌ام‌اس‌دات‌آی‌آر                               |
 
 ---
 
@@ -605,11 +605,23 @@ git clone https://github.com/zahrasalimzadeh/CoreBanking.git
 
 Open the project folder:
 
+<div dir="rtl">
+
+‏پوشه‌ی پروژه را باز کنید:
+
+</div>
+
 ```
 cd CoreBanking
 ```
 
 Install the requirements:
+
+<div dir="rtl">
+
+‏پیش‌نیازها را نصب کنید:
+
+</div>
 
 ```
 pip install -r requirements.txt
@@ -624,6 +636,12 @@ Create the database by running `CreateDatabase.sql` in SQL Server Management Stu
 </div>
 
 Create your `.env` file from the example and fill in the values:
+
+<div dir="rtl">
+
+‏فایل `.env` خودتان را از روی فایل نمونه بسازید و مقدارها را پر کنید:
+
+</div>
 
 ```
 copy .env.example .env
@@ -654,7 +672,7 @@ Sample logins from `CreateDatabase.sql` (the password of all of them is `123456`
 | App / برنامه                  | Username or mobile / نام کاربری یا موبایل |
 |-------------------------------|-------------------------------------------|
 | Desktop (Banker) / دسکتاپ     | `z.salimzadeh`                            |
-| Mobile app and API / موبایل و API | `09120000002`                         |
+| Mobile app and API / موبایل و ای‌پی‌آی | `09120000002`                         |
 
 The sample mobile numbers are fake. To receive the real SMS, change the mobile number in the database to your own number.
 
