@@ -158,7 +158,7 @@ Prefer to watch the whole mobile login (all 9 steps, from login to welcome) as a
 
 </div>
 
-[![Interactive flow preview](docs/images/interactive-flow-preview.png)](https://zahrasalimzadeh.github.io/CoreBanking/interactive-flow.html)
+[![Interactive flow preview](docs/images/interactive-flow-preview.png)](https://zahrasalimzadeh.github.io/CoreBanking/docs/interactive-flow.html)
 
 ---
 
@@ -528,7 +528,8 @@ CoreBanking/
 │   └── window.py
 │
 ├── docs/
-│   └── images/
+│   ├── images/
+│   └── interactive-flow.html
 ├── tests/
 │   ├── test_otp_business_logic.py
 │   ├── test_auth_business_logic.py
@@ -537,7 +538,6 @@ CoreBanking/
 ├── .env.example
 ├── .gitignore
 ├── CreateDatabase.sql
-├── interactive-flow.html
 ├── main.py
 ├── main_api.py
 └── requirements.txt
