@@ -449,6 +449,7 @@ The finished dashboard:
 
 - Python
 - FastAPI, Uvicorn and Pydantic
+- Swagger UI (OpenAPI)
 - Tkinter and ttkbootstrap
 - SQLAlchemy
 - SQL Server (pyodbc, pymssql)
@@ -503,6 +504,9 @@ CoreBanking/
 ├── docs/
 │   └── images/
 ├── tests/
+│   ├── test_otp_business_logic.py
+│   ├── test_auth_business_logic.py
+│   └── test_account_business_logic.py
 │
 ├── .env.example
 ├── .gitignore
@@ -527,6 +531,7 @@ CoreBanking/
 |---------------|-----------------------------------------|-----------------------------------|
 | Administrator | Employee Management, My Profile, Logout | مدیریت کارمندان، پروفایل من، خروج |
 | Banker        | Account Management, My Profile, Logout  | مدیریت حساب‌ها، پروفایل من، خروج  |
+| Customer      | Mobile app: login with OTP, accounts, balance, transactions (through the API) | اپلیکیشن موبایل: ورود با OTP، حساب‌ها، موجودی، تراکنش‌ها (از طریق API) |
 
 ---
 
@@ -610,6 +615,27 @@ Start the [NotificationMicroservice](https://github.com/zahrasalimzadeh/Notifica
 | Desktop application / دسکتاپ | `python main.py`                                |
 | REST API / ای‌پی‌آی          | `uvicorn main_api:app --port 8001 --reload`     |
 | Unit tests / تست‌ها          | `python -m unittest discover -s tests -t . -v`  |
+
+Sample logins from `CreateDatabase.sql` (the password of all of them is `123456`):
+
+<div dir="rtl">
+
+ورودهای نمونه از فایل `CreateDatabase.sql` (رمز همه‌ی آن‌ها `123456` است):
+
+</div>
+
+| App / برنامه                  | Username or mobile / نام کاربری یا موبایل |
+|-------------------------------|-------------------------------------------|
+| Desktop (Banker) / دسکتاپ     | `z.salimzadeh`                            |
+| Mobile app and API / موبایل و API | `09120000002`                         |
+
+The sample mobile numbers are fake. To receive the real SMS, change the mobile number in the database to your own number.
+
+<div dir="rtl">
+
+شماره‌های موبایل نمونه ساختگی هستند. برای دریافت پیامک واقعی، شماره‌ی موبایل را در پایگاه داده با شماره‌ی خودتان عوض کنید.
+
+</div>
 
 To see the monitoring part, also start Prometheus (`prometheus.exe`) and Grafana, as described in the [Monitoring](#-monitoring--پایش-عملکرد) section.
 
