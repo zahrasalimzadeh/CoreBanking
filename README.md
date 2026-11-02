@@ -102,7 +102,7 @@ CoreBanking does not call the SMS provider directly. It publishes the verificati
 
 </div>
 
-[![Architecture diagram](https://raw.githubusercontent.com/zahrasalimzadeh/NotificationMicroservice/main/diagram.jpg)](https://raw.githubusercontent.com/zahrasalimzadeh/NotificationMicroservice/main/diagram.jpg)
+[![Architecture diagram](docs/images/architecture-preview.png)](https://zahrasalimzadeh.github.io/NotificationMicroservice/diagram.html)
 
 [Open the interactive diagram | باز کردن نمودار تعاملی](https://zahrasalimzadeh.github.io/NotificationMicroservice/diagram.html)
 
@@ -133,6 +133,8 @@ The mobile app only calls the API and manages the user interface. The API does n
 </div>
 
 [![Mobile login flow](docs/images/mobile-login-flow.png)](docs/images/mobile-login-flow.png)
+
+[![Interactive flow preview](docs/images/interactive-flow-preview.png)](https://zahrasalimzadeh.github.io/CoreBanking/interactive-flow.html)
 
 [Open the interactive flow | باز کردن جریان تعاملی](https://zahrasalimzadeh.github.io/CoreBanking/interactive-flow.html)
 
