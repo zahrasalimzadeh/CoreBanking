@@ -4,7 +4,7 @@ A core banking application built with Python. It has a desktop application (Tkin
 
 <div dir="rtl">
 
-هسته‌ی بانکداری که با Python ساخته شده است. شامل یک برنامه‌ی دسکتاپ (Tkinter و ttkbootstrap) و یک REST API (با FastAPI) برای اپلیکیشن موبایل بانکی است. امکاناتی مثل ورود با کپچا، تأیید پیامکی (OTP) از طریق یک میکروسرویس مبتنی بر RabbitMQ، API موجودی، تراکنش‌ها و حساب‌ها، تست واحد و پایش عملکرد (ذخیره‌ی لاگ در دیتابیس، متریک‌های Prometheus و داشبورد Grafana) دارد.
+‏هسته‌ی بانکداری که با Python ساخته شده است. شامل یک برنامه‌ی دسکتاپ (Tkinter و ttkbootstrap) و یک REST API (با FastAPI) برای اپلیکیشن موبایل بانکی است. امکاناتی مثل ورود با کپچا، تأیید پیامکی (OTP) از طریق یک میکروسرویس مبتنی بر RabbitMQ، API موجودی، تراکنش‌ها و حساب‌ها، تست واحد و پایش عملکرد (ذخیره‌ی لاگ در دیتابیس، متریک‌های Prometheus و داشبورد Grafana) دارد.
 
 </div>
 
@@ -23,12 +23,12 @@ A core banking application built with Python. It has a desktop application (Tkin
 
 <div dir="rtl">
 
-- ✅ ورود با نام کاربری، رمز عبور و کپچا
-- ✅ گزینه‌ی «مرا به خاطر بسپار»
-- ✅ ثبت‌نام کاربر با کپچا
-- ✅ کد تأیید پیامکی (OTP) بعد از ورود
-- ✅ دکمه‌ی ارسال مجدد با شمارش معکوس ۲ دقیقه‌ای
-- ✅ صفحه‌ی اصلی بر اساس نقش (مدیر / بانکدار)
+- ‏✅ ورود با نام کاربری، رمز عبور و کپچا
+- ‏✅ گزینه‌ی «مرا به خاطر بسپار»
+- ‏✅ ثبت‌نام کاربر با کپچا
+- ‏✅ کد تأیید پیامکی (OTP) بعد از ورود
+- ‏✅ دکمه‌ی ارسال مجدد با شمارش معکوس ۲ دقیقه‌ای
+- ‏✅ صفحه‌ی اصلی بر اساس نقش (مدیر / بانکدار)
 
 </div>
 
@@ -43,12 +43,12 @@ A core banking application built with Python. It has a desktop application (Tkin
 
 <div dir="rtl">
 
-- ✅ ورود مشتری با شماره‌ی موبایل و رمز عبور
-- ✅ ورود دو مرحله‌ای: API کد یک‌بارمصرف (OTP) را در دیتابیس ذخیره می‌کند، پیام را در RabbitMQ منتشر می‌کند و فوراً جواب می‌دهد
-- ✅ بررسی OTP (۲ دقیقه اعتبار دارد و فقط یک بار قابل استفاده است)
-- ✅ حساب‌های مشتری، موجودی حساب و لیست تراکنش‌ها
-- ✅ مستندات تعاملی با Swagger (آدرس `/docs`)
-- ✅ تست واحد برای لایه‌ی منطق برنامه (۲۸ تست)
+- ‏✅ ورود مشتری با شماره‌ی موبایل و رمز عبور
+- ‏✅ ورود دو مرحله‌ای: API کد یک‌بارمصرف (OTP) را در دیتابیس ذخیره می‌کند، پیام را در RabbitMQ منتشر می‌کند و فوراً جواب می‌دهد
+- ‏✅ بررسی OTP (۲ دقیقه اعتبار دارد و فقط یک بار قابل استفاده است)
+- ‏✅ حساب‌های مشتری، موجودی حساب و لیست تراکنش‌ها
+- ‏✅ مستندات تعاملی با Swagger (آدرس `/docs`)
+- ‏✅ تست واحد برای لایه‌ی منطق برنامه (۲۸ تست)
 
 </div>
 
@@ -64,13 +64,13 @@ A core banking application built with Python. It has a desktop application (Tkin
 
 <div dir="rtl">
 
-- ✅ معماری لایه‌بندی‌شده (Presentation / Business Logic / Data Access)
-- ✅ پایگاه داده‌ی SQL Server با SQLAlchemy
-- ✅ نگهداری رمزها و کلیدها در فایل `.env`
-- ✅ ارسال OTP از طریق RabbitMQ و یک میکروسرویس جداگانه‌ی Notification
-- ✅ ذخیره‌ی لاگ اجرای توابع در پایگاه داده
-- ✅ ارسال اطلاعات اجرا به Prometheus
-- ✅ نمایش اطلاعات در داشبورد Grafana
+- ‏✅ معماری لایه‌بندی‌شده (Presentation / Business Logic / Data Access)
+- ‏✅ پایگاه داده‌ی SQL Server با SQLAlchemy
+- ‏✅ نگهداری رمزها و کلیدها در فایل `.env`
+- ‏✅ ارسال OTP از طریق RabbitMQ و یک میکروسرویس جداگانه‌ی Notification
+- ‏✅ ذخیره‌ی لاگ اجرای توابع در پایگاه داده
+- ‏✅ ارسال اطلاعات اجرا به Prometheus
+- ‏✅ نمایش اطلاعات در داشبورد Grafana
 
 </div>
 
@@ -83,10 +83,10 @@ A core banking application built with Python. It has a desktop application (Tkin
 
 <div dir="rtl">
 
-- اپلیکیشن موبایل بانکی (Kivy) در یک ریپازیتوری جداگانه
-- مدیریت کارمندان (مدیر)
-- مدیریت حساب‌ها (بانکدار)
-- ویرایش پروفایل من
+- ‏اپلیکیشن موبایل بانکی (Kivy) در یک ریپازیتوری جداگانه
+- ‏مدیریت کارمندان (مدیر)
+- ‏مدیریت حساب‌ها (بانکدار)
+- ‏ویرایش پروفایل من
 
 </div>
 
@@ -98,7 +98,7 @@ CoreBanking does not call the SMS provider directly. It publishes the verificati
 
 <div dir="rtl">
 
-CoreBanking مستقیم به سرویس پیامک وصل نمی‌شود. کد تأیید را در RabbitMQ منتشر می‌کند و میکروسرویس Notification آن را برمی‌دارد و از طریق sms.ir پیامک می‌فرستد.
+‏CoreBanking مستقیم به سرویس پیامک وصل نمی‌شود. کد تأیید را در RabbitMQ منتشر می‌کند و میکروسرویس Notification آن را برمی‌دارد و از طریق sms.ir پیامک می‌فرستد.
 
 </div>
 
@@ -115,10 +115,10 @@ CoreBanking مستقیم به سرویس پیامک وصل نمی‌شود. کد
 
 <div dir="rtl">
 
-1. بعد از ورود موفق، CoreBanking یک کد تأیید می‌سازد.
-2. پیام (`phone` و `content`) را با `NotificationPublisher` در RabbitMQ منتشر می‌کند.
-3. [NotificationMicroservice](https://github.com/zahrasalimzadeh/NotificationMicroservice) پیام را برمی‌دارد و پیامک را به sms.ir می‌فرستد.
-4. کاربر کد را وارد می‌کند و CoreBanking آن را بررسی می‌کند و صفحه‌ی اصلی را باز می‌کند.
+1. ‏بعد از ورود موفق، CoreBanking یک کد تأیید می‌سازد.
+2. ‏پیام (`phone` و `content`) را با `NotificationPublisher` در RabbitMQ منتشر می‌کند.
+3. ‏[NotificationMicroservice](https://github.com/zahrasalimzadeh/NotificationMicroservice) پیام را برمی‌دارد و پیامک را به sms.ir می‌فرستد.
+4. ‏کاربر کد را وارد می‌کند و CoreBanking آن را بررسی می‌کند و صفحه‌ی اصلی را باز می‌کند.
 
 </div>
 
@@ -128,7 +128,7 @@ The mobile app only calls the API and manages the user interface. The API does n
 
 <div dir="rtl">
 
-اپلیکیشن موبایل فقط API را صدا می‌زند و رابط کاربری را مدیریت می‌کند. API منتظر ارسال پیامک نمی‌ماند: کد را ذخیره می‌کند، پیام را منتشر می‌کند و بلافاصله پاسخ می‌دهد.
+‏اپلیکیشن موبایل فقط API را صدا می‌زند و رابط کاربری را مدیریت می‌کند. API منتظر ارسال پیامک نمی‌ماند: کد را ذخیره می‌کند، پیام را منتشر می‌کند و بلافاصله پاسخ می‌دهد.
 
 </div>
 
@@ -142,7 +142,7 @@ The API is built with FastAPI and listens on port **8001** (port 8000 is used by
 
 <div dir="rtl">
 
-API با FastAPI ساخته شده و روی پورت **8001** اجرا می‌شود (پورت 8000 برای متریک‌های Prometheus برنامه‌ی دسکتاپ استفاده می‌شود). برای اجرا:
+‏API با FastAPI ساخته شده و روی پورت **8001** اجرا می‌شود (پورت 8000 برای متریک‌های Prometheus برنامه‌ی دسکتاپ استفاده می‌شود). برای اجرا:
 
 </div>
 
@@ -154,7 +154,7 @@ Then open the interactive documentation at `http://127.0.0.1:8001/docs`.
 
 <div dir="rtl">
 
-سپس مستندات تعاملی را در آدرس `http://127.0.0.1:8001/docs` باز کنید.
+‏سپس مستندات تعاملی را در آدرس `http://127.0.0.1:8001/docs` باز کنید.
 
 </div>
 
@@ -173,7 +173,7 @@ Every endpoint (except `health_check`) returns the same response shape:
 
 <div dir="rtl">
 
-همه‌ی endpoint ها (به‌جز `health_check`) پاسخ را با همین قالب برمی‌گردانند:
+‏همه‌ی endpoint ها (به‌جز `health_check`) پاسخ را با همین قالب برمی‌گردانند:
 
 </div>
 
@@ -189,7 +189,7 @@ The balance is calculated as the sum of deposits minus the sum of withdrawals of
 
 <div dir="rtl">
 
-موجودی حساب برابر است با جمع واریزها منهای جمع برداشت‌های آن حساب.
+‏موجودی حساب برابر است با جمع واریزها منهای جمع برداشت‌های آن حساب.
 
 </div>
 
@@ -199,7 +199,7 @@ Request body: `{"mobile": "09120000002", "password": "123456"}` (sample customer
 
 <div dir="rtl">
 
-بدنه‌ی درخواست: `{"mobile": "09120000002", "password": "123456"}` (مشتری نمونه از فایل `CreateDatabase.sql`).
+‏بدنه‌ی درخواست: `{"mobile": "09120000002", "password": "123456"}` (مشتری نمونه از فایل `CreateDatabase.sql`).
 
 </div>
 
@@ -209,7 +209,7 @@ The code is saved in the `otp` table (valid for 2 minutes):
 
 <div dir="rtl">
 
-کد در جدول `otp` ذخیره می‌شود (۲ دقیقه اعتبار دارد):
+‏کد در جدول `otp` ذخیره می‌شود (۲ دقیقه اعتبار دارد):
 
 </div>
 
@@ -221,7 +221,7 @@ Request body: `{"mobile": "09120000002", "password": "123456", "code": "20329"}`
 
 <div dir="rtl">
 
-بدنه‌ی درخواست: `{"mobile": "09120000002", "password": "123456", "code": "20329"}`
+‏بدنه‌ی درخواست: `{"mobile": "09120000002", "password": "123456", "code": "20329"}`
 
 </div>
 
@@ -231,7 +231,7 @@ A code can be used only once. Sending the same code again is rejected:
 
 <div dir="rtl">
 
-هر کد فقط یک بار قابل استفاده است. ارسال دوباره‌ی همان کد رد می‌شود:
+‏هر کد فقط یک بار قابل استفاده است. ارسال دوباره‌ی همان کد رد می‌شود:
 
 </div>
 
@@ -253,7 +253,7 @@ SQL Server with SQLAlchemy. `CreateDatabase.sql` creates the database, all table
 
 <div dir="rtl">
 
-SQL Server با SQLAlchemy. فایل `CreateDatabase.sql` پایگاه داده، همه‌ی جدول‌ها و مقداری داده‌ی نمونه (۳۰ مشتری، ۳۲ حساب و ۴ تراکنش نمونه) را می‌سازد.
+‏SQL Server با SQLAlchemy. فایل `CreateDatabase.sql` پایگاه داده، همه‌ی جدول‌ها و مقداری داده‌ی نمونه (۳۰ مشتری، ۳۲ حساب و ۴ تراکنش نمونه) را می‌سازد.
 
 </div>
 
@@ -272,7 +272,7 @@ All sample customers have the password `123456` (stored as an MD5 hash). The sam
 
 <div dir="rtl">
 
-رمز همه‌ی مشتری‌های نمونه `123456` است (به‌صورت هش MD5 ذخیره شده). داده‌ی نمونه فقط برای توسعه است.
+‏رمز همه‌ی مشتری‌های نمونه `123456` است (به‌صورت هش MD5 ذخیره شده). داده‌ی نمونه فقط برای توسعه است.
 
 </div>
 
@@ -284,7 +284,7 @@ The business logic (login, OTP and account rules) is tested with the standard `u
 
 <div dir="rtl">
 
-منطق برنامه (ورود، OTP و قوانین حساب) با ماژول استاندارد `unittest` تست شده است. تست‌ها از repository های ساختگی استفاده می‌کنند، پس به SQL Server و RabbitMQ نیاز ندارند و در چند میلی‌ثانیه تمام می‌شوند.
+‏منطق برنامه (ورود، OTP و قوانین حساب) با ماژول استاندارد `unittest` تست شده است. تست‌ها از repository های ساختگی استفاده می‌کنند، پس به SQL Server و RabbitMQ نیاز ندارند و در چند میلی‌ثانیه تمام می‌شوند.
 
 </div>
 
@@ -308,7 +308,7 @@ Every function decorated with `@performance_logger` is measured on each call. Th
 
 <div dir="rtl">
 
-هر تابعی که با `@performance_logger` علامت‌گذاری شده باشد در هر بار اجرا اندازه‌گیری می‌شود. نتیجه در دو جا ثبت می‌شود: یک جدول در SQL Server (لاگ) و Prometheus (متریک‌ها). Grafana متریک‌ها را از Prometheus می‌خواند و در یک داشبورد نشان می‌دهد.
+‏هر تابعی که با `@performance_logger` علامت‌گذاری شده باشد در هر بار اجرا اندازه‌گیری می‌شود. نتیجه در دو جا ثبت می‌شود: یک جدول در SQL Server (لاگ) و Prometheus (متریک‌ها). Grafana متریک‌ها را از Prometheus می‌خواند و در یک داشبورد نشان می‌دهد.
 
 </div>
 
@@ -320,7 +320,7 @@ The decorator lives in `Common/Decorators/performance_logger.py` and the table m
 
 <div dir="rtl">
 
-دکوراتور در `Common/Decorators/performance_logger.py` و مدل جدول در `DataAccess/Models/performance_logger.py` قرار دارد. جدول در اولین اجرا به‌صورت خودکار ساخته می‌شود.
+‏دکوراتور در `Common/Decorators/performance_logger.py` و مدل جدول در `DataAccess/Models/performance_logger.py` قرار دارد. جدول در اولین اجرا به‌صورت خودکار ساخته می‌شود.
 
 </div>
 
@@ -335,7 +335,7 @@ Example functions that are measured: `login_button_clicked` and `get_by_username
 
 <div dir="rtl">
 
-نمونه توابعی که اندازه‌گیری می‌شوند: `login_button_clicked` و `get_by_username_password`.
+‏نمونه توابعی که اندازه‌گیری می‌شوند: `login_button_clicked` و `get_by_username_password`.
 
 </div>
 
@@ -343,7 +343,7 @@ Logs saved in the `performance_logger` table:
 
 <div dir="rtl">
 
-لاگ‌های ذخیره‌شده در جدول `performance_logger`:
+‏لاگ‌های ذخیره‌شده در جدول `performance_logger`:
 
 </div>
 
@@ -355,7 +355,7 @@ Logs saved in the `performance_logger` table:
 
 <div dir="rtl">
 
-فایل `main.py` یک سرور متریک با `start_http_server(8000)` راه‌اندازی می‌کند. تا وقتی برنامه روشن است، متریک‌ها در آدرس `http://127.0.0.1:8000/metrics` در دسترس هستند.
+‏فایل `main.py` یک سرور متریک با `start_http_server(8000)` راه‌اندازی می‌کند. تا وقتی برنامه روشن است، متریک‌ها در آدرس `http://127.0.0.1:8000/metrics` در دسترس هستند.
 
 </div>
 
@@ -370,7 +370,7 @@ Every metric has a `function` label with the function name.
 
 <div dir="rtl">
 
-هر متریک یک برچسب `function` با نام تابع دارد.
+‏هر متریک یک برچسب `function` با نام تابع دارد.
 
 </div>
 
@@ -378,7 +378,7 @@ Save this as `prometheus.yml` next to `prometheus.exe`, then run `prometheus.exe
 
 <div dir="rtl">
 
-این را با نام `prometheus.yml` کنار `prometheus.exe` ذخیره کنید و سپس `prometheus.exe` را اجرا کنید:
+‏این را با نام `prometheus.yml` کنار `prometheus.exe` ذخیره کنید و سپس `prometheus.exe` را اجرا کنید:
 
 </div>
 
@@ -400,7 +400,7 @@ Open `http://localhost:9090/targets`. Both `prometheus` and `core_banking_app` m
 
 <div dir="rtl">
 
-آدرس `http://localhost:9090/targets` را باز کنید. هر دو مورد `prometheus` و `core_banking_app` باید **UP** باشند.
+‏آدرس `http://localhost:9090/targets` را باز کنید. هر دو مورد `prometheus` و `core_banking_app` باید **UP** باشند.
 
 </div>
 
@@ -408,7 +408,7 @@ Prometheus targets (both UP):
 
 <div dir="rtl">
 
-Targetهای Prometheus (هر دو UP):
+‏Targetهای Prometheus (هر دو UP):
 
 </div>
 
@@ -427,9 +427,9 @@ Targetهای Prometheus (هر دو UP):
 
 <div dir="rtl">
 
-1. Grafana را در `http://localhost:3000` باز کنید.
-2. یک Data source از نوع Prometheus با آدرس `http://localhost:9090` اضافه کنید.
-3. یک داشبورد با نام **Core Banking Monitoring** و دو پنل بالا بسازید.
+1. ‏Grafana را در `http://localhost:3000` باز کنید.
+2. ‏یک Data source از نوع Prometheus با آدرس `http://localhost:9090` اضافه کنید.
+3. ‏یک داشبورد با نام **Core Banking Monitoring** و دو پنل بالا بسازید.
 
 </div>
 
@@ -437,7 +437,7 @@ The finished dashboard:
 
 <div dir="rtl">
 
-داشبورد نهایی:
+‏داشبورد نهایی:
 
 </div>
 
@@ -541,7 +541,7 @@ Copy `.env.example` to `.env` and fill in the values. The `.env` file is ignored
 
 <div dir="rtl">
 
-فایل `.env.example` را به `.env` کپی کنید و مقدارها را پر کنید. فایل `.env` توسط Git نادیده گرفته می‌شود و هرگز نباید آپلود شود.
+‏فایل `.env.example` را به `.env` کپی کنید و مقدارها را پر کنید. فایل `.env` توسط Git نادیده گرفته می‌شود و هرگز نباید آپلود شود.
 
 </div>
 
@@ -568,7 +568,7 @@ Make sure SQL Server and RabbitMQ are installed and running, then clone the repo
 
 <div dir="rtl">
 
-مطمئن شوید SQL Server و RabbitMQ نصب و روشن هستند، سپس پروژه را کلون کنید:
+‏مطمئن شوید SQL Server و RabbitMQ نصب و روشن هستند، سپس پروژه را کلون کنید:
 
 </div>
 
@@ -592,7 +592,7 @@ Create the database by running `CreateDatabase.sql` in SQL Server Management Stu
 
 <div dir="rtl">
 
-پایگاه داده را با اجرای فایل `CreateDatabase.sql` در SQL Server Management Studio بسازید. این فایل پایگاه داده‌ی `CoreBanking0606` را با همه‌ی جدول‌ها و داده‌ی نمونه می‌سازد.
+‏پایگاه داده را با اجرای فایل `CreateDatabase.sql` در SQL Server Management Studio بسازید. این فایل پایگاه داده‌ی `CoreBanking0606` را با همه‌ی جدول‌ها و داده‌ی نمونه می‌سازد.
 
 </div>
 
@@ -606,7 +606,7 @@ Start the [NotificationMicroservice](https://github.com/zahrasalimzadeh/Notifica
 
 <div dir="rtl">
 
-میکروسرویس [NotificationMicroservice](https://github.com/zahrasalimzadeh/NotificationMicroservice) را اجرا کنید (برای ارسال پیامک باید روشن باشد)، سپس هر بخشی که می‌خواهید را اجرا کنید:
+‏میکروسرویس [NotificationMicroservice](https://github.com/zahrasalimzadeh/NotificationMicroservice) را اجرا کنید (برای ارسال پیامک باید روشن باشد)، سپس هر بخشی که می‌خواهید را اجرا کنید:
 
 </div>
 
@@ -620,7 +620,7 @@ Sample logins from `CreateDatabase.sql` (the password of all of them is `123456`
 
 <div dir="rtl">
 
-ورودهای نمونه از فایل `CreateDatabase.sql` (رمز همه‌ی آن‌ها `123456` است):
+‏ورودهای نمونه از فایل `CreateDatabase.sql` (رمز همه‌ی آن‌ها `123456` است):
 
 </div>
 
@@ -633,7 +633,7 @@ The sample mobile numbers are fake. To receive the real SMS, change the mobile n
 
 <div dir="rtl">
 
-شماره‌های موبایل نمونه ساختگی هستند. برای دریافت پیامک واقعی، شماره‌ی موبایل را در پایگاه داده با شماره‌ی خودتان عوض کنید.
+‏شماره‌های موبایل نمونه ساختگی هستند. برای دریافت پیامک واقعی، شماره‌ی موبایل را در پایگاه داده با شماره‌ی خودتان عوض کنید.
 
 </div>
 
@@ -641,7 +641,7 @@ To see the monitoring part, also start Prometheus (`prometheus.exe`) and Grafana
 
 <div dir="rtl">
 
-برای دیدن بخش پایش، Prometheus (`prometheus.exe`) و Grafana را هم طبق بخش [پایش عملکرد](#-monitoring--پایش-عملکرد) اجرا کنید.
+‏برای دیدن بخش پایش، Prometheus (`prometheus.exe`) و Grafana را هم طبق بخش [پایش عملکرد](#-monitoring--پایش-عملکرد) اجرا کنید.
 
 </div>
 
@@ -675,7 +675,7 @@ The API screenshots are in the REST API section, and the monitoring screenshots 
 
 <div dir="rtl">
 
-تصاویر API در بخش «واسط برنامه‌نویسی» و تصاویر پایش در بخش «پایش عملکرد» قرار دارد.
+‏تصاویر API در بخش «واسط برنامه‌نویسی» و تصاویر پایش در بخش «پایش عملکرد» قرار دارد.
 
 </div>
 
@@ -685,7 +685,7 @@ The demo videos are published on LinkedIn:
 
 <div dir="rtl">
 
-ویدیوهای دمو در LinkedIn منتشر شده‌اند:
+‏ویدیوهای دمو در LinkedIn منتشر شده‌اند:
 
 </div>
 
@@ -708,11 +708,11 @@ The demo videos are published on LinkedIn:
 
 <div dir="rtl">
 
-- پیامک تأیید توسط NotificationMicroservice و از طریق sms.ir ارسال می‌شود. برای دریافت پیامک واقعی، حساب sms.ir باید اعتبار کافی داشته باشد.
-- نام Exchange و Queue باید در CoreBanking و NotificationMicroservice یکسان باشد.
-- آدرس متریک‌ها (پورت 8000) فقط تا وقتی برنامه‌ی دسکتاپ روشن است وجود دارد. وقتی بسته شود، target با نام `core_banking_app` در Prometheus به حالت DOWN می‌رود. این رفتار طبیعی است.
-- API روی پورت 8001 اجرا می‌شود، پس هم‌زمان با برنامه‌ی دسکتاپ قابل اجرا است.
-- endpoint های موجودی و تراکنش‌ها هنوز بررسی نمی‌کنند که حساب متعلق به مشتریِ واردشده است. افزودن توکن برای محافظت از آن‌ها برنامه‌ریزی شده است.
+- ‏پیامک تأیید توسط NotificationMicroservice و از طریق sms.ir ارسال می‌شود. برای دریافت پیامک واقعی، حساب sms.ir باید اعتبار کافی داشته باشد.
+- ‏نام Exchange و Queue باید در CoreBanking و NotificationMicroservice یکسان باشد.
+- ‏آدرس متریک‌ها (پورت 8000) فقط تا وقتی برنامه‌ی دسکتاپ روشن است وجود دارد. وقتی بسته شود، target با نام `core_banking_app` در Prometheus به حالت DOWN می‌رود. این رفتار طبیعی است.
+- ‏API روی پورت 8001 اجرا می‌شود، پس هم‌زمان با برنامه‌ی دسکتاپ قابل اجرا است.
+- ‏endpoint های موجودی و تراکنش‌ها هنوز بررسی نمی‌کنند که حساب متعلق به مشتریِ واردشده است. افزودن توکن برای محافظت از آن‌ها برنامه‌ریزی شده است.
 
 </div>
 
