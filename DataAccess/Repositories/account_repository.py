@@ -27,11 +27,14 @@ class SQLAlchemyAccountRepository(IAccountRepository):
             )
 
             for account_model, customer_model in rows:
-                customer = Customer(customer_model.id, customer_model.first_name, customer_model.last_name)
-                account = Account(account_model.id, account_model.account_number, account_model.opening_date, customer)
-                account_list.append(account)
+                customer = Customer.from_model(customer_model)
+                account_list.append(Account.from_model(account_model, customer))
 
         return account_list
+
+    def get_account_count(self):
+        with create_session() as session:
+            return session.query(func.count(AccountModel.id)).scalar()
 
     @performance_logger
     def get_accounts_by_customer_id(self, customer_id):
@@ -47,9 +50,8 @@ class SQLAlchemyAccountRepository(IAccountRepository):
             )
 
             for account_model, customer_model in rows:
-                customer = Customer(customer_model.id, customer_model.first_name, customer_model.last_name)
-                account = Account(account_model.id, account_model.account_number, account_model.opening_date, customer)
-                account_list.append(account)
+                customer = Customer.from_model(customer_model)
+                account_list.append(Account.from_model(account_model, customer))
 
         return account_list
 
@@ -67,16 +69,9 @@ class SQLAlchemyAccountRepository(IAccountRepository):
             )
 
             for transaction_model, account_model, customer_model in rows:
-                customer = Customer(customer_model.id, customer_model.first_name, customer_model.last_name)
-                account = Account(account_model.id, account_model.account_number, account_model.opening_date, customer)
-                transaction = Transaction(
-                    transaction_model.id,
-                    transaction_model.amount,
-                    transaction_model.transaction_type_id,
-                    transaction_model.created_at,
-                    account
-                )
-                transaction_list.append(transaction)
+                customer = Customer.from_model(customer_model)
+                account = Account.from_model(account_model, customer)
+                transaction_list.append(Transaction.from_model(transaction_model, account))
 
         return transaction_list
 

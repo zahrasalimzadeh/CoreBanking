@@ -34,3 +34,7 @@ class IAccountRepository(ABC):
     @abstractmethod
     def insert_transaction(self, account_id, amount, transaction_type):
         pass
+
+    @abstractmethod
+    def get_account_count(self):
+        pass

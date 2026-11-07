@@ -5,19 +5,24 @@ from Presentation.Frames.otp import OtpFrame
 from tkinter import Frame
 from Presentation.Frames.home import HomeFrame
 from Presentation.Frames.profile import ProfileFrame
+from Presentation.Frames.account_management import AccountManagementFrame
+from Presentation.Frames.transactions import TransactionsFrame
 
 
 class MainView:
-    def __init__(self,user_business):
+    def __init__(self, user_business, account_business):
         self.frames = {}
 
         self.window = Window("Core Banking")
 
         self.user_business = user_business
+        self.account_business = account_business
 
         self.add_frame("home", HomeFrame(self.window, self), 400, 400)
         self.add_frame("register", RegisterFrame(self.window, self), 420, 580)
         self.add_frame("login", LoginFrame(self.window, self,user_business), 760, 520)
+        self.add_frame("account_management", AccountManagementFrame(self.window, self, account_business), 760, 560)
+        self.add_frame("transactions", TransactionsFrame(self.window, self, account_business), 760, 620)
 
         self.show_frame("login")
 

@@ -13,6 +13,8 @@ from DataAccess.Models.transaction import Transaction
 from DataAccess.Models.otp import Otp
 from DataAccess.Repositories.employee_repository import SQLAlchemyEmployeeRepository
 from prometheus_client import start_http_server
+from BusinessLogic.account_business_logic import AccountBusinessLogic
+from DataAccess.Repositories.account_repository import SQLAlchemyAccountRepository
 
 load_dotenv()
 
@@ -45,4 +47,5 @@ with create_session() as session:
 repository = SQLAlchemyEmployeeRepository()
 user_business = UserBusinessLogic(repository)
 start_http_server(8000)
-MainView(user_business)
+account_business = AccountBusinessLogic(SQLAlchemyAccountRepository())
+MainView(user_business, account_business)

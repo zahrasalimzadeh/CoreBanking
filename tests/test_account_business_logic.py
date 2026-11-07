@@ -7,6 +7,9 @@ class FakeAccountRepository(IAccountRepository):
     def get_account_list(self, page_number=1, page_size=20):
         return []
 
+    def get_account_count(self):
+        return 0
+
     def get_accounts_by_customer_id(self, customer_id):
         return ["account-1", "account-2"]
 

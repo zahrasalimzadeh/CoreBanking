@@ -5,5 +5,9 @@ class Customer:
         self.last_name = last_name
         self.mobile = mobile
 
+    @classmethod
+    def from_model(cls, model):
+        return cls(model.id, model.first_name, model.last_name, model.mobile)
+
     def get_fullname(self):
         return f"{self.first_name} {self.last_name}"

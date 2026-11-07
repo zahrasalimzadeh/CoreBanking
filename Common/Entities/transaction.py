@@ -9,3 +9,7 @@ class Transaction:
         self.transaction_type = TransactionType(transaction_type_id)
         self.created_at = created_at
         self.account = account
+
+    @classmethod
+    def from_model(cls, model, account: Account):
+        return cls(model.id, model.amount, model.transaction_type_id, model.created_at, account)

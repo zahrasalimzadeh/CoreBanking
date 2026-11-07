@@ -7,3 +7,7 @@ class Account:
         self.account_number = number
         self.opening_date = opening_date
         self.owner_customer = customer
+
+    @classmethod
+    def from_model(cls, model, customer: Customer):
+        return cls(model.id, model.account_number, model.opening_date, customer)
