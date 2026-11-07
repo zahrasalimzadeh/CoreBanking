@@ -20,6 +20,10 @@ A core banking application built with Python. It has a desktop application (Tkin
 - ✅ SMS verification code (OTP) after login
 - ✅ Retry button with a 2-minute countdown
 - ✅ Role-based home page (Administrator / Banker)
+- ✅ Account Management for bankers: paged account list with Previous / Next buttons and a rows-per-page selector
+- ✅ Transaction report of an account with balance and colored deposit / withdraw rows
+- ✅ Export the report to PDF and Excel
+- ✅ Only bankers can use these features (checked in the business logic)
 
 <div dir="rtl">
 
@@ -29,6 +33,10 @@ A core banking application built with Python. It has a desktop application (Tkin
 - ‏✅ کد تأیید پیامکی (OTP) بعد از ورود
 - ‏✅ دکمه‌ی ارسال مجدد با شمارش معکوس ۲ دقیقه‌ای
 - ‏✅ صفحه‌ی اصلی بر اساس نقش (مدیر / بانکدار)
+- ‏✅ مدیریت حساب‌ها برای بانکدار: لیست حساب‌ها با دکمه‌های قبلی / بعدی و انتخاب تعداد ردیف در هر صفحه
+- ‏✅ گزارش تراکنش‌های یک حساب همراه با موجودی و رنگ‌بندی واریز و برداشت
+- ‏✅ خروجی گزارش به صورت PDF و Excel
+- ‏✅ فقط بانکدار می‌تواند از این امکانات استفاده کند (بررسی در لایه‌ی BusinessLogic)
 
 </div>
 
@@ -78,14 +86,12 @@ A core banking application built with Python. It has a desktop application (Tkin
 
 - Mobile banking app (Kivy), in a separate repository
 - Employee Management (Administrator)
-- Account Management (Banker)
 - My Profile editing
 
 <div dir="rtl">
 
 - ‏اپلیکیشن موبایل بانکی (Kivy) در یک ریپازیتوری جداگانه
 - ‏مدیریت کارمندان (مدیر)
-- ‏مدیریت حساب‌ها (بانکدار)
 - ‏ویرایش پروفایل من
 
 </div>
@@ -270,6 +276,38 @@ A code can be used only once. Sending the same code again is rejected:
 [![Balance](docs/images/api-balance.png)](docs/images/api-balance.png)
 
 [![Transactions](docs/images/api-transactions.png)](docs/images/api-transactions.png)
+
+---
+
+# 🏦 Account Management | مدیریت حساب‌ها
+
+Bankers can open **Account Management** from the home page. It shows all accounts in a table with paging, and opens the transaction report of the selected account. The report shows the owner, the report date, the balance and every deposit and withdraw, and it can be exported to PDF or Excel.
+
+<div dir="rtl">
+
+‏بانکدار می‌تواند از صفحه‌ی اصلی وارد **مدیریت حساب‌ها** شود. همه‌ی حساب‌ها در یک جدول با صفحه‌بندی نمایش داده می‌شوند و با انتخاب یک حساب، گزارش تراکنش‌های آن باز می‌شود. گزارش شامل نام مالک، تاریخ گزارش، موجودی و همه‌ی واریزها و برداشت‌هاست و می‌تواند به صورت PDF یا Excel ذخیره شود.
+
+</div>
+
+```
+Home  →  Account Management  →  select an account  →  Transactions  →  Export PDF / Export Excel
+```
+
+| Topic / موضوع | Details | توضیح |
+|---|---|---|
+| Paging | Previous / Next buttons and a rows-per-page selector (10, 20, 50); the page is read from the database with `offset` and `limit` | دکمه‌های قبلی / بعدی و انتخاب تعداد ردیف (۱۰، ۲۰، ۵۰)؛ هر صفحه با `offset` و `limit` از دیتابیس خوانده می‌شود |
+| Access control | `AccountBusinessLogic` checks that the employee is a banker and returns `Access denied.` otherwise | لایه‌ی BusinessLogic بررسی می‌کند کارمند بانکدار باشد، وگرنه `Access denied.` برمی‌گرداند |
+| Selected account | The account is passed from the Account Management frame to the Transactions frame (no fixed account id) | حساب انتخاب‌شده از فریم مدیریت حساب‌ها به فریم تراکنش‌ها پاس داده می‌شود (بدون شماره‌ی ثابت) |
+| Data access | SQLAlchemy queries; entities are built with the `from_model` class method | کوئری‌ها با SQLAlchemy؛ موجودیت‌ها با کلاس‌متد `from_model` ساخته می‌شوند |
+| Export | PDF (reportlab) and Excel (openpyxl), with the bank icon, title, report date, account number and owner | PDF (با reportlab) و Excel (با openpyxl) همراه با آیکون بانک، عنوان، تاریخ گزارش، شماره حساب و مالک |
+
+Sample reports: [PDF](docs/sara-ahmadi.pdf) and [Excel](docs/sara-ahmadi.xlsx).
+
+<div dir="rtl">
+
+‏نمونه‌ی گزارش‌ها: [PDF](docs/sara-ahmadi.pdf) و [Excel](docs/sara-ahmadi.xlsx).
+
+</div>
 
 ---
 
@@ -482,6 +520,7 @@ The finished dashboard:
 - RabbitMQ (pika)
 - python-dotenv
 - Captcha (Pillow)
+- openpyxl (Excel export) and reportlab (PDF export)
 - Prometheus (prometheus_client)
 - Grafana
 - unittest
@@ -529,7 +568,9 @@ CoreBanking/
 │
 ├── docs/
 │   ├── images/
-│   └── interactive-flow.html
+│   ├── interactive-flow.html
+│   ├── sara-ahmadi.pdf
+│   └── sara-ahmadi.xlsx
 ├── tests/
 │   ├── test_otp_business_logic.py
 │   ├── test_auth_business_logic.py
@@ -715,6 +756,30 @@ To see the monitoring part, also start Prometheus (`prometheus.exe`) and Grafana
 **5. Banker home page | صفحه‌ی اصلی بانکدار**
 
 [![Banker home](docs/images/desktop-home-banker.png)](docs/images/desktop-home-banker.png)
+
+**6. Account Management (Banker) | مدیریت حساب‌ها (بانکدار)**
+
+[![Account Management](docs/images/desktop-account-management.png)](docs/images/desktop-account-management.png)
+
+**7. Transaction report | گزارش تراکنش‌ها**
+
+[![Transactions](docs/images/desktop-transactions.png)](docs/images/desktop-transactions.png)
+
+**8. PDF export | خروجی PDF**
+
+[![PDF export](docs/images/export-pdf-preview.png)](docs/sara-ahmadi.pdf)
+
+**9. Excel export | خروجی Excel**
+
+[![Excel export](docs/images/export-excel-preview.png)](docs/sara-ahmadi.xlsx)
+
+Click the last two images to open the real sample files.
+
+<div dir="rtl">
+
+‏برای باز کردن فایل‌های نمونه‌ی واقعی روی دو تصویر آخر کلیک کنید.
+
+</div>
 
 The API screenshots are in the REST API section, and the monitoring screenshots are in the Monitoring section.
 
