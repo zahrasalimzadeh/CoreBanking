@@ -295,11 +295,11 @@ Home  →  Account Management  →  select an account  →  Transactions  →  E
 
 | Topic / موضوع | Details | توضیح |
 |---|---|---|
-| Paging | Previous / Next buttons and a rows-per-page selector (10, 20, 50); the page is read from the database with `offset` and `limit` | دکمه‌های قبلی / بعدی و انتخاب تعداد ردیف (۱۰، ۲۰، ۵۰)؛ هر صفحه با `offset` و `limit` از دیتابیس خوانده می‌شود |
-| Access control | `AccountBusinessLogic` checks that the employee is a banker and returns `Access denied.` otherwise | لایه‌ی BusinessLogic بررسی می‌کند کارمند بانکدار باشد، وگرنه `Access denied.` برمی‌گرداند |
+| Paging | Previous / Next buttons and a rows-per-page selector (10, 20, 50); the page is read from the database with `offset` and `limit` | دکمه‌های قبلی و بعدی و انتخاب تعداد ردیف (۱۰، ۲۰، ۵۰)؛ هر صفحه با آفست و لیمیت از دیتابیس خوانده می‌شود |
+| Access control | `AccountBusinessLogic` checks that the employee is a banker and returns `Access denied.` otherwise | لایه‌ی بیزینس‌لاجیک بررسی می‌کند کارمند بانکدار باشد، وگرنه پیام «دسترسی ممنوع» برمی‌گرداند |
 | Selected account | The account is passed from the Account Management frame to the Transactions frame (no fixed account id) | حساب انتخاب‌شده از فریم مدیریت حساب‌ها به فریم تراکنش‌ها پاس داده می‌شود (بدون شماره‌ی ثابت) |
-| Data access | SQLAlchemy queries; entities are built with the `from_model` class method | کوئری‌ها با SQLAlchemy؛ موجودیت‌ها با کلاس‌متد `from_model` ساخته می‌شوند |
-| Export | PDF (reportlab) and Excel (openpyxl), with the bank icon, title, report date, account number and owner | PDF (با reportlab) و Excel (با openpyxl) همراه با آیکون بانک، عنوان، تاریخ گزارش، شماره حساب و مالک |
+| Data access | SQLAlchemy queries; entities are built with the `from_model` class method | کوئری‌ها با اس‌کیو‌ال‌آلکمی نوشته شده و موجودیت‌ها با کلاس‌متد فروم‌مدل ساخته می‌شوند |
+| Export | PDF (reportlab) and Excel (openpyxl), with the bank icon, title, report date, account number and owner | پی‌دی‌اف (با ریپورت‌لب) و اکسل (با اوپن‌پای‌اکسل) همراه با آیکون بانک، عنوان، تاریخ گزارش، شماره‌ی حساب و نام مالک |
 
 Sample reports: [PDF](docs/sara-ahmadi.pdf) and [Excel](docs/sara-ahmadi.xlsx).
 
@@ -313,11 +313,11 @@ Sample reports: [PDF](docs/sara-ahmadi.pdf) and [Excel](docs/sara-ahmadi.xlsx).
 
 # 🗄 Database | پایگاه داده
 
-SQL Server with SQLAlchemy. `CreateDatabase.sql` creates the database, all tables and some sample data (30 customers, 32 accounts and 4 sample transactions).
+SQL Server with SQLAlchemy. `CreateDatabase.sql` creates the database, all tables and some sample data (30 customers, 32 accounts and 94 sample transactions).
 
 <div dir="rtl">
 
-‏SQL Server با SQLAlchemy. فایل `CreateDatabase.sql` پایگاه داده، همه‌ی جدول‌ها و مقداری داده‌ی نمونه (۳۰ مشتری، ۳۲ حساب و ۴ تراکنش نمونه) را می‌سازد.
+‏SQL Server با SQLAlchemy. فایل `CreateDatabase.sql` پایگاه داده، همه‌ی جدول‌ها و مقداری داده‌ی نمونه (۳۰ مشتری، ۳۲ حساب و ۹۴ تراکنش نمونه) را می‌سازد.
 
 </div>
 
