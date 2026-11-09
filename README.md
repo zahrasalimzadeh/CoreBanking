@@ -84,14 +84,10 @@ A core banking application built with Python. It has a desktop application (Tkin
 
 ### 🚧 In Progress | در حال توسعه
 
-- Mobile banking app (Kivy), in a separate repository
-- Employee Management (Administrator)
 - My Profile editing
 
 <div dir="rtl">
 
-- ‏اپلیکیشن موبایل بانکی (Kivy) در یک ریپازیتوری جداگانه
-- ‏مدیریت کارمندان (مدیر)
 - ‏ویرایش پروفایل من
 
 </div>
@@ -597,7 +593,7 @@ CoreBanking/
 
 | Role          | Home page options                       | گزینه‌های صفحه‌ی اصلی             |
 |---------------|-----------------------------------------|-----------------------------------|
-| Administrator | Employee Management, My Profile, Logout | مدیریت کارمندان، پروفایل من، خروج |
+| Administrator | My Profile, Logout                      | پروفایل من، خروج                  |
 | Banker        | Account Management, My Profile, Logout  | مدیریت حساب‌ها، پروفایل من، خروج  |
 | Customer      | Mobile app: login with OTP, accounts, balance, transactions (through the API) | اپلیکیشن موبایل: ورود با کد یک‌بارمصرف، حساب‌ها، موجودی، تراکنش‌ها (از طریق ای‌پی‌آی) |
 
