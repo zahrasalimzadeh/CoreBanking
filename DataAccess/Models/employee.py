@@ -1,5 +1,5 @@
 from DataAccess.Models.base import Base
-from sqlalchemy import Integer, String,SmallInteger, ForeignKey
+from sqlalchemy import Integer, String,SmallInteger, ForeignKey, LargeBinary
 from sqlalchemy.orm import Mapped, mapped_column
 
 
@@ -14,3 +14,4 @@ class Employee(Base):
     password: Mapped[str] = mapped_column(String(50), nullable=False)
     employee_status_id: Mapped[int] = mapped_column(SmallInteger, ForeignKey("employee_status.id"))
     role_id: Mapped[int] = mapped_column(SmallInteger, nullable=False, default=1)
+    profile_image: Mapped[bytes | None] = mapped_column(LargeBinary, nullable=True)

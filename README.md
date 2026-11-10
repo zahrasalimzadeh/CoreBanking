@@ -24,6 +24,7 @@ A core banking application built with Python. It has a desktop application (Tkin
 - ✅ Transaction report of an account with balance and colored deposit / withdraw rows
 - ✅ Export the report to PDF and Excel
 - ✅ Only bankers can use these features (checked in the business logic)
+- ✅ My Profile: see your details, edit first name, last name and mobile, change the password and upload a profile picture (stored in the database)
 
 <div dir="rtl">
 
@@ -37,6 +38,7 @@ A core banking application built with Python. It has a desktop application (Tkin
 - ‏✅ گزارش تراکنش‌های یک حساب همراه با موجودی و رنگ‌بندی واریز و برداشت
 - ‏✅ خروجی گزارش به صورت PDF و Excel
 - ‏✅ فقط بانکدار می‌تواند از این امکانات استفاده کند (بررسی در لایه‌ی BusinessLogic)
+- ‏✅ پروفایل من: دیدن اطلاعات، ویرایش نام و نام خانوادگی و موبایل، تغییر رمز عبور و انتخاب عکس پروفایل (ذخیره در پایگاه داده)
 
 </div>
 
@@ -84,15 +86,11 @@ A core banking application built with Python. It has a desktop application (Tkin
 
 ### 🚧 In Progress | در حال توسعه
 
-- Mobile banking app (Kivy), in a separate repository
 - Employee Management (Administrator)
-- My Profile editing
 
 <div dir="rtl">
 
-- ‏اپلیکیشن موبایل بانکی (Kivy) در یک ریپازیتوری جداگانه
 - ‏مدیریت کارمندان (مدیر)
-- ‏ویرایش پروفایل من
 
 </div>
 
@@ -772,6 +770,20 @@ To see the monitoring part, also start Prometheus (`prometheus.exe`) and Grafana
 **9. Excel export | خروجی Excel**
 
 [![Excel export](docs/images/export-excel-preview.png)](docs/sara-ahmadi.xlsx)
+
+**10. My Profile | پروفایل من**
+
+[![My Profile](docs/images/desktop-profile.png)](docs/images/desktop-profile.png)
+
+The profile picture is stored in the database (a `VARBINARY(MAX)` column). This is the picture used in the screenshot:
+
+<img src="docs/images/profile-sample.jpg" width="150" alt="Sample profile picture">
+
+<div dir="rtl">
+
+‏عکس پروفایل داخل پایگاه داده (ستون `VARBINARY(MAX)`) ذخیره می‌شود. عکس بالا همین تصویر را نشان می‌دهد.
+
+</div>
 
 Click the last two images to open the real sample files.
 

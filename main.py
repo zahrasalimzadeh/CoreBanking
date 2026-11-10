@@ -14,6 +14,7 @@ from DataAccess.Models.otp import Otp
 from DataAccess.Repositories.employee_repository import SQLAlchemyEmployeeRepository
 from prometheus_client import start_http_server
 from BusinessLogic.account_business_logic import AccountBusinessLogic
+from BusinessLogic.profile_business_logic import ProfileBusinessLogic
 from DataAccess.Repositories.account_repository import SQLAlchemyAccountRepository
 
 load_dotenv()
@@ -48,4 +49,5 @@ repository = SQLAlchemyEmployeeRepository()
 user_business = UserBusinessLogic(repository)
 start_http_server(8000)
 account_business = AccountBusinessLogic(SQLAlchemyAccountRepository())
-MainView(user_business, account_business)
+profile_business = ProfileBusinessLogic(repository)
+MainView(user_business, account_business, profile_business)

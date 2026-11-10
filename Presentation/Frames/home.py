@@ -23,7 +23,7 @@ class HomeFrame(Frame):
         self.account_management = Button(self, text="Account Management", bootstyle="primary",
                                          command=self.account_management_clicked)
 
-        self.profile_management = Button(self, text="My Profile")
+        self.profile_management = Button(self, text="My Profile", command=self.profile_clicked)
         self.profile_management.grid(row=3, column=0, pady=(0, 10), sticky="ew")
 
         self.logout_button = Button(self, text="Logout", bootstyle="danger", command=self.logout_button_clicked)
@@ -50,6 +50,9 @@ class HomeFrame(Frame):
         self.current_employee = None
         self.main_view.show_frame("login")
 
+    def profile_clicked(self):
+        profile_frame = self.main_view.show_frame("profile")
+        profile_frame.set_current_employee(self.current_employee)
 
     def account_management_clicked(self):
         account_management_frame = self.main_view.show_frame("account_management")
