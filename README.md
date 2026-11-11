@@ -321,7 +321,7 @@ SQL Server with SQLAlchemy. `CreateDatabase.sql` creates the database, all table
 
 | Table                | Description                                                   | توضیح                                              |
 |----------------------|---------------------------------------------------------------|----------------------------------------------------|
-| `employee`           | Desktop users (username, hashed password, mobile, role)       | کاربران برنامه‌ی دسکتاپ                            |
+| `employee`           | Desktop users (username, hashed password, mobile, role, profile picture) | کاربران برنامه‌ی دسکتاپ (با عکس پروفایل) |
 | `employee_status`    | Pending / Active / Deactive                                   | وضعیت کارمند                                       |
 | `customer`           | Bank customers (name, mobile, hashed password)                | مشتری‌های بانک (نام، موبایل، رمز هش‌شده)           |
 | `account`            | Accounts of customers (unique account number, opening date)   | حساب‌های مشتری‌ها (شماره‌ی حساب یکتا، تاریخ افتتاح) |
@@ -715,6 +715,7 @@ Sample logins from `CreateDatabase.sql` (the password of all of them is `123456`
 | App / برنامه                  | Username or mobile / نام کاربری یا موبایل |
 |-------------------------------|-------------------------------------------|
 | Desktop (Banker) / دسکتاپ     | `z.salimzadeh`                            |
+| Desktop (Administrator) / دسکتاپ | `r.azizi`                              |
 | Mobile app and API / موبایل و ای‌پی‌آی | `09120000002`                         |
 
 The sample mobile numbers are fake. To receive the real SMS, change the mobile number in the database to your own number.
@@ -779,13 +780,13 @@ To see the monitoring part, also start Prometheus (`prometheus.exe`) and Grafana
 
 [![My Profile](docs/images/desktop-profile.png)](docs/images/desktop-profile.png)
 
-The profile picture is stored in the database (a `VARBINARY(MAX)` column). This is the picture used in the screenshot:
+The profile picture is stored in the database (a `VARBINARY(MAX)` column). These are the sample pictures used in the screenshots:
 
-<img src="docs/images/profile-sample.jpg" width="150" alt="Sample profile picture">
+<img src="docs/images/profile-sample.jpg" width="150" alt="Sample profile picture 1"> <img src="docs/images/profile-sample-2.jpg" width="150" alt="Sample profile picture 2">
 
 <div dir="rtl">
 
-‏عکس پروفایل داخل پایگاه داده (ستون `VARBINARY(MAX)`) ذخیره می‌شود. عکس بالا همین تصویر را نشان می‌دهد.
+‏عکس پروفایل داخل پایگاه داده (ستون `VARBINARY(MAX)`) ذخیره می‌شود. دو عکس بالا همین تصویرهای نمونه را نشان می‌دهند.
 
 </div>
 
