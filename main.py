@@ -1,4 +1,3 @@
-import os
 from dotenv import load_dotenv
 from Presentation.main_view import MainView
 from BusinessLogic.user_business_logic import UserBusinessLogic
@@ -18,9 +17,6 @@ from BusinessLogic.profile_business_logic import ProfileBusinessLogic
 from DataAccess.Repositories.account_repository import SQLAlchemyAccountRepository
 
 load_dotenv()
-
-sql_server_host = os.getenv("SQLSERVER_HOST", ".")
-sql_server_database = os.getenv("SQLSERVER_DATABASE")
 
 
 Base.metadata.create_all(engine)
