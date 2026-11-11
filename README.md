@@ -830,7 +830,7 @@ The demo videos are published on LinkedIn:
 - The queue and exchange names must be the same in CoreBanking and in the NotificationMicroservice.
 - The metrics endpoint (port 8000) only exists while the desktop application is running. When it is closed, the `core_banking_app` target in Prometheus becomes DOWN. This is expected.
 - The API runs on port 8001, so it can run at the same time as the desktop application.
-- The balance and transactions endpoints do not check yet that the account belongs to the logged-in customer. Adding a token to protect them is planned.
+- The balance and transactions endpoints do not check yet that the account belongs to the logged-in customer. This is a known limitation of this version.
 
 <div dir="rtl">
 
@@ -838,7 +838,7 @@ The demo videos are published on LinkedIn:
 - ‏نام Exchange و Queue باید در CoreBanking و NotificationMicroservice یکسان باشد.
 - ‏آدرس متریک‌ها (پورت 8000) فقط تا وقتی برنامه‌ی دسکتاپ روشن است وجود دارد. وقتی بسته شود، target با نام `core_banking_app` در Prometheus به حالت DOWN می‌رود. این رفتار طبیعی است.
 - ‏API روی پورت 8001 اجرا می‌شود، پس هم‌زمان با برنامه‌ی دسکتاپ قابل اجرا است.
-- ‏endpoint های موجودی و تراکنش‌ها هنوز بررسی نمی‌کنند که حساب متعلق به مشتریِ واردشده است. افزودن توکن برای محافظت از آن‌ها برنامه‌ریزی شده است.
+- ‏این نسخه هنوز بررسی نمی‌کند که حساب موردنظر در بخش موجودی و تراکنش‌ها متعلق به مشتریِ واردشده است. این یک محدودیت شناخته‌شده است.
 
 </div>
 
