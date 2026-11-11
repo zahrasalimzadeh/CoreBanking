@@ -42,7 +42,7 @@ A core banking application built with Python. It has a desktop application (Tkin
 
 </div>
 
-### REST API for the mobile app | API برای اپلیکیشن موبایل
+### REST API for the mobile app | رابط سروری برای اپلیکیشن موبایل
 
 - ✅ Customer login with mobile number and password
 - ✅ Two-step login: the API stores a one-time code (OTP) in the database, publishes a message to RabbitMQ and answers immediately
@@ -245,7 +245,7 @@ The code is saved in the `otp` table (valid for 2 minutes):
 
 [![OTP table](docs/images/db-otp-table.jpg)](docs/images/db-otp-table.jpg)
 
-## Verify OTP (step 2) | تأیید OTP (مرحله‌ی ۲)
+## Verify OTP (step 2) | تأیید کد یک‌بارمصرف (مرحله‌ی ۲)
 
 Request body: `{"mobile": "09120000002", "password": "123456", "code": "20329"}`
 
@@ -411,7 +411,7 @@ Logs saved in the `performance_logger` table:
 
 [![Database log](docs/images/db-performance-logger.jpg)](docs/images/db-performance-logger.jpg)
 
-## 2. Prometheus metrics | متریک‌های Prometheus
+## 2. Prometheus metrics | متریک‌های پرومتئوس
 
 `main.py` starts a metrics server with `start_http_server(8000)`. While the application is running, the metrics are available at `http://127.0.0.1:8000/metrics`.
 
@@ -476,7 +476,7 @@ Prometheus targets (both UP):
 
 [![Prometheus targets](docs/images/prometheus-targets.jpg)](docs/images/prometheus-targets.jpg)
 
-## 3. Grafana dashboard | داشبورد Grafana
+## 3. Grafana dashboard | داشبورد گرافانا
 
 1. Open Grafana at `http://localhost:3000`.
 2. Add a Prometheus data source with the URL `http://localhost:9090`.
@@ -536,7 +536,8 @@ CoreBanking/
 │   ├── user_business_logic.py
 │   ├── auth_business_logic.py
 │   ├── otp_business_logic.py
-│   └── account_business_logic.py
+│   ├── account_business_logic.py
+│   └── profile_business_logic.py
 │
 ├── Common/
 │   ├── Decorators/
@@ -559,6 +560,7 @@ CoreBanking/
 │   │   ├── DI/
 │   │   ├── DTOs/
 │   │   └── Endpoints/
+│   ├── Assets/
 │   ├── Component/
 │   ├── Frames/
 │   ├── main_view.py
@@ -570,6 +572,7 @@ CoreBanking/
 │   ├── sara-ahmadi.pdf
 │   └── sara-ahmadi.xlsx
 ├── tests/
+│   ├── __init__.py
 │   ├── test_otp_business_logic.py
 │   ├── test_auth_business_logic.py
 │   └── test_account_business_logic.py
@@ -579,6 +582,7 @@ CoreBanking/
 ├── CreateDatabase.sql
 ├── main.py
 ├── main_api.py
+├── README.md
 └── requirements.txt
 ```
 
@@ -811,12 +815,12 @@ The demo videos are published on LinkedIn:
 
 </div>
 
-| Video                                       | ویدیو                            | Link                                                                                           |
-|---------------------------------------------|----------------------------------|------------------------------------------------------------------------------------------------|
-| Architecture diagram                        | نمودار معماری                    | [Watch on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7516609310831845376/) |
-| Login and waiting for the verification code | ورود و منتظر ماندن برای کد تأیید | [Watch on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7516609963180367874/) |
-| Receiving the code                          | دریافت کد                        | [Watch on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7516611332004061185/) |
-| Home page after verification                | صفحه‌ی اصلی بعد از تأیید         | [Watch on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7516611776558301184/) |
+<table>
+<tr><th>Video</th><th>ویدیو</th><th>Link</th></tr>
+<tr><td dir="ltr">Receiving the OTP code</td><td dir="rtl">دریافت کد OTP</td><td><a href="https://www.linkedin.com/feed/update/urn:li:activity:7516611332004061185/">Watch on LinkedIn</a></td></tr>
+<tr><td dir="ltr">Full demo of Core Banking</td><td dir="rtl">دموی کامل Core Banking</td><td><a href="https://www.linkedin.com/feed/update/urn:li:activity:7526002152469700609/">Watch on LinkedIn</a></td></tr>
+<tr><td dir="ltr">Full demo of Bank Mobile App</td><td dir="rtl">دموی کامل 𝗕𝗮𝗻𝗸 𝗠𝗼𝗯𝗶𝗹𝗲 𝗔𝗽𝗽</td><td><a href="https://www.linkedin.com/feed/update/urn:li:activity:7526047492837167104/">Watch on LinkedIn</a></td></tr>
+</table>
 
 ---
 
@@ -835,6 +839,20 @@ The demo videos are published on LinkedIn:
 - ‏آدرس متریک‌ها (پورت 8000) فقط تا وقتی برنامه‌ی دسکتاپ روشن است وجود دارد. وقتی بسته شود، target با نام `core_banking_app` در Prometheus به حالت DOWN می‌رود. این رفتار طبیعی است.
 - ‏API روی پورت 8001 اجرا می‌شود، پس هم‌زمان با برنامه‌ی دسکتاپ قابل اجرا است.
 - ‏endpoint های موجودی و تراکنش‌ها هنوز بررسی نمی‌کنند که حساب متعلق به مشتریِ واردشده است. افزودن توکن برای محافظت از آن‌ها برنامه‌ریزی شده است.
+
+</div>
+
+---
+
+# 🔗 Related repositories | مخزن‌های مرتبط
+
+- [NotificationMicroservice](https://github.com/zahrasalimzadeh/NotificationMicroservice): reads the messages from RabbitMQ and sends the SMS through sms.ir
+- [BankMobileApp](https://github.com/zahrasalimzadeh/BankMobileApp): the mobile banking app (Kivy) that uses the REST API of this project
+
+<div dir="rtl">
+
+- ‏[NotificationMicroservice](https://github.com/zahrasalimzadeh/NotificationMicroservice): پیام‌ها را از RabbitMQ می‌خواند و با sms.ir پیامک می‌فرستد
+- ‏[BankMobileApp](https://github.com/zahrasalimzadeh/BankMobileApp): اپلیکیشن موبایل بانک (Kivy) که از REST API همین پروژه استفاده می‌کند
 
 </div>
 
